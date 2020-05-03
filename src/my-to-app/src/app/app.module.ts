@@ -10,6 +10,7 @@ import { FiltroComponent } from './filtro/filtro.component';
 import { TarefaContainerComponent } from './tarefa-container/tarefa-container.component';
 import { TarefaComponent } from './tarefa-container/tarefa/tarefa.component';
 import { TarefaService } from './shared/tarefa.service';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { TarefaService } from './shared/tarefa.service';
     FiltroComponent,
     TarefaContainerComponent,
     TarefaComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

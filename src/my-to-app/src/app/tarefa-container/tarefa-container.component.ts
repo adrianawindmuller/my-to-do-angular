@@ -5,6 +5,7 @@ import { Tarefa } from './tarefa.model';
 @Component({
   selector: 'app-tarefa-container',
   templateUrl: './tarefa-container.component.html',
+  styleUrls: ['./tarefa-container.component.css']
 })
 export class TarefaContainerComponent implements OnInit {
 
