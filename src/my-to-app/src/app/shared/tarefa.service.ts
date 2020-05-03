@@ -8,7 +8,11 @@ export class TarefaService {
 
   tarefas: Tarefa[] = []
 
-  adicionarTarefa(tarefa:Tarefa){
+  adicionarTarefa(tarefa: Tarefa){
     this.tarefas.push(tarefa)
+  }
+
+  obterTarefas(){
+    return this.tarefas
   }
 }

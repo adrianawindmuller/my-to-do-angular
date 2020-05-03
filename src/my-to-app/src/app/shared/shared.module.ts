@@ -14,11 +14,15 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
   exports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     MatSliderModule,
     FlexLayoutModule,
     MatCardModule,

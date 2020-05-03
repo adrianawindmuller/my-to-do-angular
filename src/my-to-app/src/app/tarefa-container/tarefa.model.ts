@@ -1,5 +1,7 @@
 export class Tarefa {
-  constructor (public id: number, public  concluido: boolean, public  descricao: string)
-  {
-  }
+  id: number
+  concluido: boolean
+  
+  constructor (public  descricao: string)
+  {}
 }
