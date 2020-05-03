@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {SharedModule} from '../../shared/shared.module'
 import { Tarefa } from '../tarefa.model';
 
 

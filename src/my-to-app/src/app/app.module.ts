@@ -9,6 +9,7 @@ import { AdicionarTarefaComponent } from './adicionar-tarefa/adicionar-tarefa.co
 import { FiltroComponent } from './filtro/filtro.component';
 import { TarefaContainerComponent } from './tarefa-container/tarefa-container.component';
 import { TarefaComponent } from './tarefa-container/tarefa/tarefa.component';
+import { TarefaService } from './shared/tarefa.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { TarefaComponent } from './tarefa-container/tarefa/tarefa.component';
     BrowserAnimationsModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [TarefaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

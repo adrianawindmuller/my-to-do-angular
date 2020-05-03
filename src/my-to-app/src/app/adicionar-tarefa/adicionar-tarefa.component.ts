@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SharedModule} from '../shared/shared.module'
-
+import { TarefaService } from '../shared/tarefa.service';
+import { Tarefa } from '../tarefa-container/tarefa.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-adicionar-tarefa',
@@ -9,9 +10,19 @@ import {SharedModule} from '../shared/shared.module'
 })
 export class AdicionarTarefaComponent implements OnInit {
 
-  constructor() { }
+  tarefaForm: FormGroup
+
+  constructor(private tarefaService: TarefaService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
+    this.tarefaForm = this.fb.group({
+      nometarefa: this.fb.control('', [Validators.required, Validators.minLength(5), ])
+    })
+  }
+
+  adicionarTarefa(){
+    let tarefa = new Tarefa()
+    this.tarefaService.adicionarTarefa()
   }
 
 }
