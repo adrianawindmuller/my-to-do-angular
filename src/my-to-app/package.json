@@ -28,7 +28,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
     "@angular/cdk": "^9.2.1",
-    "@angular/cli": "~9.1.1",
+    "@angular/cli": "^9.1.4",
     "@angular/compiler-cli": "~9.1.1",
     "@angular/flex-layout": "^9.0.0-beta.29",
     "@angular/language-service": "~9.1.1",
