@@ -1,19 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tarefa } from '../tarefa.model';
-
+import { TarefaService } from 'src/app/shared/tarefa.service';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-tarefa',
   templateUrl: './tarefa.component.html',
-  styleUrls: ['./tarefa.component.css']
+  styleUrls: ['./tarefa.component.css'],
 })
 export class TarefaComponent implements OnInit {
+  @Input() tarefa: Tarefa;
 
-@Input() tarefa : Tarefa
+  constructor(private tarefaService: TarefaService, public modal: MatDialog) {}
 
-  constructor() { }
+  ngOnInit(): void {}
+  removerTarefa() {
+    const dialogRef = this.modal.open(ModalComponent, {
+      width: '400px',
+    });
 
-  ngOnInit(): void {
+    dialogRef.afterClosed().subscribe((excluir) => {
+      if (excluir) {
+        this.tarefaService.removerTarefa(this.tarefa);
+      }
+    });
   }
-
 }

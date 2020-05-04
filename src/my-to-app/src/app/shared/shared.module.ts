@@ -17,6 +17,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
+
+import {MatDialogModule} from '@angular/material/dialog';
+
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -35,6 +38,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatListModule,
     MatCheckboxModule,
     MatToolbarModule,
+    MatDialogModule,
   ]
 })
 export class SharedModule { }

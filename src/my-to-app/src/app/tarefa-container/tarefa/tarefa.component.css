@@ -1,4 +1,8 @@
 .mat-card{
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
+}
+
+.tarefa-concluida{
+  font-style: italic;
+  text-decoration: line-through;
 }

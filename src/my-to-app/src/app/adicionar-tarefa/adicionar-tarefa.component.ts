@@ -22,6 +22,6 @@ export class AdicionarTarefaComponent implements OnInit {
   adicionarTarefa(){
     let tarefa = new Tarefa(this.tarefaForm.get('nomeTarefa').value)
     this.tarefaService.adicionarTarefa(tarefa)
+    this.tarefaForm.get('nomeTarefa').reset()
   }
-
 }
