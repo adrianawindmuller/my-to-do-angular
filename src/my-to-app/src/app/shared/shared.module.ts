@@ -19,10 +19,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { InputTarefaComponent } from './input-tarefa/input-tarefa.component';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule],
+  declarations: [
+    InputTarefaComponent,
+  ],
+  imports: [
+    CommonModule,
+    MatInputModule,
+  ],
   exports: [
     CommonModule,
     ReactiveFormsModule,
@@ -39,6 +45,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCheckboxModule,
     MatToolbarModule,
     MatDialogModule,
+    InputTarefaComponent,
   ]
 })
 export class SharedModule { }

@@ -6,7 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'app-modal',
   templateUrl: './modal.component.html',
 })
-export class ModalComponent implements OnInit {
+export class RemoverTarefaModalComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<TarefaComponent>) {}
 

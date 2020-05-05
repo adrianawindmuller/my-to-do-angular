@@ -1,7 +1,7 @@
-<div mat-dialog-content>
+<div mat-dialog-content fxLayout="row" fxLayoutAlign="center center">
   <p>Tem certeza que deseja excluir a tarefa?</p>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
   <button mat-button (click)="clickNao()">Não</button>
   <button mat-button cdkFocusInitial (click)="clickSim()">Sim</button>
 </div>

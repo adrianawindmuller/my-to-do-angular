@@ -1,12 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tarefa } from '../tarefa.model';
 import { TarefaService } from 'src/app/shared/tarefa.service';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
-import { ModalComponent } from '../modal/modal.component';
+import { MatDialog } from '@angular/material/dialog';
+import { RemoverTarefaModalComponent } from '../remover-tarefa-modal/modal.component';
+import { AlterarTarefaModalComponent } from '../alterar-tarefa-modal/alterar-tarefa-modal.component';
 
 @Component({
   selector: 'app-tarefa',
@@ -19,8 +16,9 @@ export class TarefaComponent implements OnInit {
   constructor(private tarefaService: TarefaService, public modal: MatDialog) {}
 
   ngOnInit(): void {}
+
   removerTarefa() {
-    const dialogRef = this.modal.open(ModalComponent, {
+    const dialogRef = this.modal.open(RemoverTarefaModalComponent, {
       width: '400px',
     });
 
@@ -29,5 +27,12 @@ export class TarefaComponent implements OnInit {
         this.tarefaService.removerTarefa(this.tarefa);
       }
     });
+  }
+
+  alterarTarefa() {
+    const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
+      width: '400px',
+      data: { titulo: this.tarefa },
+    }); 
   }
 }

@@ -4,7 +4,7 @@
       <span [class.tarefa-concluida]="tarefa.concluido">{{tarefa.descricao}}</span>
     </div>
     <div fxFlex="23">
-      <button mat-icon-button color="primary" >
+      <button mat-icon-button color="primary" (click)="alterarTarefa()">
         <mat-icon>create</mat-icon>
       </button>
       <button mat-icon-button color="primary" (click)="removerTarefa()">
