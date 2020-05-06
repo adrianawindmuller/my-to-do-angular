@@ -28,6 +28,10 @@ import { InputTarefaComponent } from './input-tarefa/input-tarefa.component';
   imports: [
     CommonModule,
     MatInputModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatListModule,
   ],
   exports: [
     CommonModule,
