@@ -1,6 +1,8 @@
 <form [formGroup]="form" novalidate fxLayout="row" fxLayoutAlign="space-between center">
-  <app-input-tarefa fxFlex="90" label="Insira uma tarefa" placeholder="Ex. Ir ao mercado" formControlName="nomeTarefa">
-  </app-input-tarefa>
+  <mat-form-field fxFlex="90">
+    <mat-label>Insira uma Tarefa</mat-label>
+    <input matInput formControlName="nomeTarefa" placeholder="Ex. ir ao mercado">
+  </mat-form-field>
   <div fxFlex>
     <button mat-icon-button color="primary" (click)="adicionarTarefa()" [disabled]="!form.valid && !form.pristine">
       <mat-icon>add</mat-icon>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Tarefa } from '../tarefa-container/tarefa.model';
 import { TarefaService } from '../shared/tarefa.service';
+import { ValidatorInput } from '../shared/validator-input';
 
 @Component({
   selector: 'app-adicionar-tarefa',
@@ -14,11 +15,7 @@ export class AdicionarTarefaComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      nomeTarefa: this.fb.control('', [
-        Validators.required,
-        Validators.minLength(5),
-        Validators.maxLength(40),
-      ]),
+      nomeTarefa: this.fb.control('', ValidatorInput),
     });
   }
 
@@ -28,7 +25,3 @@ export class AdicionarTarefaComponent implements OnInit {
     this.form.get('nomeTarefa').reset();
   }
 }
-
-// Validators.required,
-// Validators.minLength(5),
-// Validators.maxLength(20),
