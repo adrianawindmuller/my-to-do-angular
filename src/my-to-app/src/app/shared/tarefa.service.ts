@@ -19,4 +19,10 @@ export class TarefaService {
     const index = this.tarefas.indexOf(item);
     this.tarefas.splice(index, 1);
   }
+
+  alterarTarefa(item) {
+    //console.log(`este é o resultado ${item}`);
+    const index = this.tarefas.indexOf(item);
+
+  }
 }

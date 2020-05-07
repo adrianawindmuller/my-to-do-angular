@@ -11,7 +11,7 @@ import { TarefaContainerComponent } from './tarefa-container/tarefa-container.co
 import { TarefaComponent } from './tarefa-container/tarefa/tarefa.component';
 import { TarefaService } from './shared/tarefa.service';
 import { HeaderComponent } from './header/header.component';
-import { RemoverTarefaModalComponent } from './tarefa-container/remover-tarefa-modal/modal.component';
+import { RemoverTarefaModalComponent } from './tarefa-container/remover-tarefa-modal/remover-tarefa-modal.component';
 import { AlterarTarefaModalComponent } from './tarefa-container/alterar-tarefa-modal/alterar-tarefa-modal.component';
 
 

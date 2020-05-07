@@ -4,7 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
+  templateUrl: './remover-tarefa-modal.component.html',
 })
 export class RemoverTarefaModalComponent implements OnInit {
 
