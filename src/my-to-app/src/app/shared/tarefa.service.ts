@@ -9,6 +9,7 @@ export class TarefaService {
 
   adicionarTarefa(tarefa: Tarefa) {
     this.tarefas.push(tarefa);
+    console.log(`criando: ${JSON.stringify(tarefa)}`);
   }
 
   obterTarefas() {
@@ -20,9 +21,9 @@ export class TarefaService {
     this.tarefas.splice(index, 1);
   }
 
-  alterarTarefa(item) {
-    //console.log(`este é o resultado ${item}`);
-    const index = this.tarefas.indexOf(item);
-
+  alterarTarefa(id: string, descricao: string) {
+    let tarefa = this.tarefas.find((x) => x.id == id);
+    tarefa.descricao = descricao;
+    console.log(`editando: ${JSON.stringify(tarefa)}`);
   }
 }

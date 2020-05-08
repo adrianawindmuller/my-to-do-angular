@@ -32,12 +32,11 @@ export class TarefaComponent implements OnInit {
   alterarTarefa() {
     const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
       width: '400px',
-      data: { titulo: this.tarefa.descricao },
+      data: {id: this.tarefa.id ,descricao: this.tarefa.descricao },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      let tarefa = new Tarefa(result)
-      this.tarefaService.alterarTarefa(result);
+    dialogRef.afterClosed().subscribe((data) => {
+      this.tarefaService.alterarTarefa(data.id, data.descricao);
     });
   }
 }

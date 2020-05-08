@@ -1,10 +1,13 @@
-<div mat-dialog-content fxLayout="row">
-  <mat-form-field fxFlex>
-    <mat-label>Insira uma Tarefa</mat-label>
-    <input matInput [(ngModel)]="data.titulo" >
-  </mat-form-field>
-</div>
-<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
-  <button mat-button (click)="sair()">Sair</button>
-  <button mat-button cdkFocusInitial (click)="atualizarTarefa()">Salvar</button>
-</div>
+<form [formGroup]="form" novalidate>
+  <div mat-dialog-content fxLayout="row">
+    <mat-form-field fxFlex>
+      <mat-label>Insira uma Tarefa</mat-label>
+      <input matInput [(ngModel)]="data.descricao" formControlName="nomeTarefa">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button (click)="sair()">Sair</button>
+    <button mat-button cdkFocusInitial (click)="atualizarTarefa()"
+      [disabled]="!form.valid && !form.pristine">Salvar</button>
+  </div>
+</form>

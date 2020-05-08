@@ -20,8 +20,12 @@ export class AdicionarTarefaComponent implements OnInit {
   }
 
   adicionarTarefa() {
-    let tarefa = new Tarefa(this.form.get('nomeTarefa').value);
+    let tarefa = new Tarefa(
+      this.form.get('nomeTarefa').value
+    );
+
     this.tarefaService.adicionarTarefa(tarefa);
+
     this.form.get('nomeTarefa').reset();
   }
 }
