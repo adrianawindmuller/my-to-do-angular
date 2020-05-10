@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Tarefa } from '../tarefa-container/tarefa.model';
 import { TarefaService } from '../shared/tarefa.service';
 import { ValidatorInput } from '../shared/validator-input';
 
 @Component({
   selector: 'app-adicionar-tarefa',
-  templateUrl: './adicionar-tarefa.component.html',
+  templateUrl: './adicionar-tarefa.component.html'
 })
 export class AdicionarTarefaComponent implements OnInit {
   form: FormGroup;
@@ -20,10 +20,7 @@ export class AdicionarTarefaComponent implements OnInit {
   }
 
   adicionarTarefa() {
-    let tarefa = new Tarefa(
-      this.form.get('nomeTarefa').value
-    );
-
+    let tarefa = new Tarefa(this.form.get('nomeTarefa').value);
     this.tarefaService.adicionarTarefa(tarefa);
 
     this.form.get('nomeTarefa').reset();

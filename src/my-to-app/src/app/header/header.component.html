@@ -1,6 +1,16 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
+<mat-toolbar color="primary" fxLayout="row">
+  <mat-toolbar-row fxFlex="70">
     <img src="../assets/logotipo-icone.png" alt="logoTipo">
     <h1 class="mat-headline">My To-do</h1>
   </mat-toolbar-row>
+
+  <div>
+    <input [(ngModel)]="tarefa">
+    <div *ngFor="let item of tarefa | mySearch:tarefa">
+      <p>
+        {{tarefa}}
+      </p>
+    </div>
+  </div>
+
 </mat-toolbar>

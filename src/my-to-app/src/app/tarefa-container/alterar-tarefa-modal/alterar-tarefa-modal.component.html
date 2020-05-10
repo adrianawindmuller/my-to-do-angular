@@ -6,8 +6,8 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
-    <button mat-button (click)="sair()">Sair</button>
-    <button mat-button cdkFocusInitial (click)="atualizarTarefa()"
+    <button mat-raised-button (click)="sair()">Sair</button>
+    <button mat-raised-button cdkFocusInitial (click)="atualizarTarefa()"
       [disabled]="!form.valid && !form.pristine">Salvar</button>
   </div>
 </form>
