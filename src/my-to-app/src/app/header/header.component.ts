@@ -7,8 +7,6 @@ import { Tarefa } from '../tarefa-container/tarefa.model';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  tarefa: Tarefa[]
-
   constructor() {}
 
   ngOnInit(): void {}

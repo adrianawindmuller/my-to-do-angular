@@ -1,2 +1,16 @@
-<app-tarefa *ngFor="let item of tarefas" [tarefa]="item" class="container">
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-form-field fxFlex>
+    <mat-label>Pesquisar</mat-label>
+    <input matInput [(ngModel)]="xpto">
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <mat-radio-group fxFlex>
+    <mat-radio-button class="pl1" value="todas">Todas</mat-radio-button>
+    <mat-radio-button class="pl1" value="concluidas">Concluidas</mat-radio-button>
+    <mat-radio-button class="pl1" value="nao-concluidas">Não Concluidas</mat-radio-button>
+  </mat-radio-group>
+</div>
+<app-tarefa *ngFor="let item of tarefas | mySearch:xpto" [tarefa]="item" class="container">
 </app-tarefa>

@@ -1,14 +1,14 @@
-  <mat-card class="mt2 pr0" fxLayout="row" fxLayoutAlign="space-between center" >
-    <div fxFlex >
-      <mat-checkbox class="pr1 pl1" [(ngModel)]="tarefa.concluido"></mat-checkbox>
-      <span [class.tarefa-concluida]="tarefa.concluido">{{tarefa.descricao}}</span>
-    </div>
-    <div fxFlex="23">
-      <button mat-icon-button color="primary" (click)="alterarTarefa()">
-        <mat-icon>create</mat-icon>
-      </button>
-      <button mat-icon-button color="primary" (click)="removerTarefa()">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-  </mat-card>
+<mat-card class="mt2 pr0" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxFlex>
+    <mat-checkbox class="pr1 pl1" [(ngModel)]="tarefa.concluido"></mat-checkbox>
+    <span [class.tarefa-concluida]="tarefa.concluido">{{tarefa.descricao}}</span>
+  </div>
+  <div fxFlex="25">
+    <button mat-icon-button color="primary" (click)="alterarTarefa()">
+      <mat-icon>create</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" (click)="removerTarefa()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</mat-card>

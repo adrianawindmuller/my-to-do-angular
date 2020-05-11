@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { AdicionarTarefaComponent } from './adicionar-tarefa/adicionar-tarefa.component';
-import { FiltroComponent } from './filtro/filtro.component';
 import { TarefaContainerComponent } from './tarefa-container/tarefa-container.component';
 import { TarefaComponent } from './tarefa-container/tarefa/tarefa.component';
 import { TarefaService } from './shared/tarefa.service';
@@ -19,7 +18,6 @@ import { AlterarTarefaModalComponent } from './tarefa-container/alterar-tarefa-m
   declarations: [
     AppComponent,
     AdicionarTarefaComponent,
-    FiltroComponent,
     TarefaContainerComponent,
     TarefaComponent,
     HeaderComponent,

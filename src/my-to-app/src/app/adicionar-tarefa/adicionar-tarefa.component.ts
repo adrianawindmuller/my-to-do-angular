@@ -6,7 +6,14 @@ import { ValidatorInput } from '../shared/validator-input';
 
 @Component({
   selector: 'app-adicionar-tarefa',
-  templateUrl: './adicionar-tarefa.component.html'
+  templateUrl: './adicionar-tarefa.component.html',
+  styles: [
+    `
+      .mat-icon-button {
+        font-size: 25px !important;
+      }
+    `,
+  ],
 })
 export class AdicionarTarefaComponent implements OnInit {
   form: FormGroup;
