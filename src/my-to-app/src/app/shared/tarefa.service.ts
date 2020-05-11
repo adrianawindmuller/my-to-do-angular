@@ -6,24 +6,29 @@ import { Tarefa } from '../tarefa-container/tarefa.model';
 })
 export class TarefaService {
   tarefas: Tarefa[] = [];
+  tarefasFiltro: Tarefa[] = [];
 
   adicionarTarefa(tarefa: Tarefa) {
     this.tarefas.push(tarefa);
-    console.log(`criando: ${JSON.stringify(tarefa)}`);
+    this.tarefasFiltro.push(tarefa);
   }
 
   obterTarefas() {
     return this.tarefas;
   }
 
+  obterTarefasFiltro() {
+    return this.tarefasFiltro;
+  }
+
   removerTarefa(item: Tarefa) {
     const index = this.tarefas.indexOf(item);
     this.tarefas.splice(index, 1);
+    this.tarefasFiltro.splice(index, 1);
   }
 
   alterarTarefa(id: string, descricao: string) {
-    let tarefa = this.tarefas.find((x) => x.id == id);
-    tarefa.descricao = descricao;
-    console.log(`editando: ${JSON.stringify(tarefa)}`);
+    this.tarefas.find((x) => x.id == id).descricao = descricao;
+    this.tarefasFiltro.find((x) => x.id == id).descricao = descricao;
   }
 }
