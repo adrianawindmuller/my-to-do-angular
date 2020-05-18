@@ -19,10 +19,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MySearchPipe } from './pipes/my-search.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [MySearchPipe],
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   exports: [
     CommonModule,
     ReactiveFormsModule,
@@ -40,6 +42,7 @@ import { MySearchPipe } from './pipes/my-search.pipe';
     MatToolbarModule,
     MatDialogModule,
     MySearchPipe,
+    ScrollingModule,
   ],
 })
 export class SharedModule {}

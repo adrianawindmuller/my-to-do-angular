@@ -23,7 +23,7 @@ form: FormGroup
   }
 
   atualizarTarefa() {
-    this.dialogRef.close(this.data);
+    this.dialogRef.close(this.data)
   }
 
   sair() {

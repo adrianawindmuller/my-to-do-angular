@@ -24,7 +24,9 @@ export class TarefaComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((excluir) => {
       if (excluir) {
-        this.tarefaService.removerTarefa(this.tarefa);
+        this.tarefaService
+          .removerTarefa(this.tarefa.id)
+          .subscribe((result) => this.tarefaService.obterTarefas());
       }
     });
   }
@@ -32,11 +34,21 @@ export class TarefaComponent implements OnInit {
   alterarTarefa() {
     const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
       width: '400px',
-      data: {id: this.tarefa.id ,descricao: this.tarefa.descricao },
+      data: { id: this.tarefa.id, descricao: this.tarefa.descricao },
     });
 
     dialogRef.afterClosed().subscribe((data) => {
-      this.tarefaService.alterarTarefa(data.id, data.descricao);
+      this.tarefa.descricao = data.descricao;
+
+      this.tarefaService
+        .alterarTarefa(this.tarefa)
+        .subscribe((result) => this.tarefaService.obterTarefas());
     });
+  }
+
+  concluirTarefa(tarefa: Tarefa) {
+    this.tarefaService
+      .alterarTarefa(tarefa)
+      .subscribe((result) => this.tarefaService.obterTarefas());
   }
 }

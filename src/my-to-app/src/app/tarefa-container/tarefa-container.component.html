@@ -18,5 +18,5 @@
   </mat-radio-group>
 
 </div>
-<app-tarefa *ngFor="let item of tarefasFiltro | mySearch:pesquisa" [tarefa]="item" class="container">
+<app-tarefa *ngFor="let item of tarefas$ | async | mySearch:pesquisa" [tarefa]="item" class="container">
 </app-tarefa>

@@ -1,34 +1,44 @@
 import { Injectable } from '@angular/core';
 import { Tarefa } from '../tarefa-container/tarefa.model';
-
+import { HttpClient } from '@angular/common/http';
+import { Observable, pipe, BehaviorSubject, Subscription } from 'rxjs';
+import { delay, tap, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
 export class TarefaService {
-  tarefas: Tarefa[] = [];
-  tarefasFiltro: Tarefa[] = [];
+  private API = 'http://localhost:3000/tarefa';
 
-  adicionarTarefa(tarefa: Tarefa) {
-    this.tarefas.push(tarefa);
-    this.tarefasFiltro.push(tarefa);
+  private _tarefas = new BehaviorSubject<Tarefa[]>([]);
+
+  constructor(private http: HttpClient) {}
+
+  adicionarTarefa(tarefa: Tarefa): Observable<Tarefa[]> {
+    return this.http.post<Tarefa[]>(this.API, tarefa);
   }
 
-  obterTarefas() {
-    return this.tarefas;
+  get tarefas() {
+    return this._tarefas.asObservable();
   }
 
-  obterTarefasFiltro() {
-    return this.tarefasFiltro;
+  obterTarefas(): Subscription {
+    return this.http
+      .get<Tarefa[]>(this.API)
+      .subscribe((result) => this._tarefas.next(result));
   }
 
-  removerTarefa(item: Tarefa) {
-    const index = this.tarefas.indexOf(item);
-    this.tarefas.splice(index, 1);
-    this.tarefasFiltro.splice(index, 1);
+  removerTarefa(id: string) {
+    return this.http.delete(`${this.API}/${id}`);
   }
 
-  alterarTarefa(id: string, descricao: string) {
-    this.tarefas.find((x) => x.id == id).descricao = descricao;
-    this.tarefasFiltro.find((x) => x.id == id).descricao = descricao;
+  alterarTarefa(tarefa: Tarefa) {
+    return this.http.put(`${this.API}/${tarefa.id}`, {
+      descricao: tarefa.descricao,
+      concluido: tarefa.concluido,
+    });
+  }
+
+  trazerTarefas() {
+    return this.http.get<Tarefa>(`${this.API}`);
   }
 }
