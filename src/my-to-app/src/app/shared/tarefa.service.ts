@@ -21,9 +21,14 @@ export class TarefaService {
     return this._tarefas.asObservable();
   }
 
-  obterTarefas(): Subscription {
+  obterTarefas(concluido?: boolean): Subscription {
+    let url =
+      concluido == undefined // ()
+        ? this.API // if
+        : `${this.API}?concluido=${concluido}`; //false
+
     return this.http
-      .get<Tarefa[]>(this.API)
+      .get<Tarefa[]>(url)
       .subscribe((result) => this._tarefas.next(result));
   }
 
@@ -36,9 +41,5 @@ export class TarefaService {
       descricao: tarefa.descricao,
       concluido: tarefa.concluido,
     });
-  }
-
-  trazerTarefas() {
-    return this.http.get<Tarefa>(`${this.API}`);
   }
 }

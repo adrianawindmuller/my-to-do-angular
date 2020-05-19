@@ -7,7 +7,7 @@
   </div>
   <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
     <button mat-raised-button (click)="sair()">Sair</button>
-    <button mat-raised-button cdkFocusInitial (click)="atualizarTarefa()"
+    <button mat-raised-button color="primary" cdkFocusInitial style="color: white" (click)="atualizarTarefa()"
       [disabled]="!form.valid && !form.pristine">Salvar</button>
   </div>
 </form>

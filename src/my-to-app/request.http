@@ -8,4 +8,7 @@ http://localhost:3000/tarefa
 # {
 #     "descricao": "comprar banana"
 # }
+###
+
+GET http://localhost:3000/tarefa?concluido=false HTTP/1.1
 
