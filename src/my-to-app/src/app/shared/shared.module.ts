@@ -22,6 +22,7 @@ import { MySearchPipe } from './pipes/my-search.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { AppRoutingModule } from '../app-routing.module';
 @NgModule({
   declarations: [MySearchPipe],
   imports: [CommonModule, HttpClientModule],

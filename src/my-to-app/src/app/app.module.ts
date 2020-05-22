@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
@@ -9,10 +8,11 @@ import { AdicionarTarefaComponent } from './adicionar-tarefa/adicionar-tarefa.co
 import { TarefaContainerComponent } from './tarefa-container/tarefa-container.component';
 import { TarefaComponent } from './tarefa-container/tarefa/tarefa.component';
 import { TarefaService } from './shared/tarefa.service';
-import { HeaderComponent } from './header/header.component';
 import { RemoverTarefaModalComponent } from './tarefa-container/remover-tarefa-modal/remover-tarefa-modal.component';
 import { AlterarTarefaModalComponent } from './tarefa-container/alterar-tarefa-modal/alterar-tarefa-modal.component';
-
+import { AppLayoutModule } from './app-layout/app-layout.module';
+import { HomeComponent } from './pages/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,17 +20,19 @@ import { AlterarTarefaModalComponent } from './tarefa-container/alterar-tarefa-m
     AdicionarTarefaComponent,
     TarefaContainerComponent,
     TarefaComponent,
-    HeaderComponent,
     AlterarTarefaModalComponent,
     RemoverTarefaModalComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    AppRoutingModule,
+    AppLayoutModule,
   ],
+  exports: [AdicionarTarefaComponent, TarefaContainerComponent],
   providers: [TarefaService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

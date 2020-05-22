@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Tarefa } from '../tarefa-container/tarefa.model';
 
 @Component({
   selector: 'app-header',

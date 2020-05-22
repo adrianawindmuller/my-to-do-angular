@@ -37,8 +37,8 @@ export class TarefaComponent implements OnInit {
       data: { id: this.tarefa.id, descricao: this.tarefa.descricao },
     });
 
-    dialogRef.afterClosed().subscribe((data) => {
-      this.tarefa.descricao = data.descricao;
+    dialogRef.afterClosed().subscribe((result) => {
+      this.tarefa.descricao = result.descricao;
 
       this.tarefaService
         .alterarTarefa(this.tarefa)

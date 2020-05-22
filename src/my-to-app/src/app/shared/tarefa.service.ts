@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Tarefa } from '../tarefa-container/tarefa.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, pipe, BehaviorSubject, Subscription } from 'rxjs';
-import { delay, tap, take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
