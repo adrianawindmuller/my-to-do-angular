@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Tarefa } from '../tarefa-container/tarefa.model';
-import { TarefaService } from '../shared/tarefa.service';
-import { ValidatorInput } from '../shared/validator-input';
+import { TarefaService } from '../../../shared/tarefa.service';
+import { ValidatorInput } from '../../../shared/validator-input';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -16,10 +16,9 @@ import { Subscription } from 'rxjs';
     `,
   ],
 })
-export class AdicionarTarefaComponent implements OnInit, OnDestroy {
+export class AdicionarTarefaComponent implements OnInit {
   form: FormGroup;
   tarefas: Tarefa[] = [];
-  sub: Subscription;
   constructor(private tarefaService: TarefaService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
@@ -30,13 +29,9 @@ export class AdicionarTarefaComponent implements OnInit, OnDestroy {
 
   adicionarTarefa(): void {
     let tarefa = new Tarefa(this.form.get('nomeTarefa').value);
-    this.sub = this.tarefaService
+    this.tarefaService
       .adicionarTarefa(tarefa)
       .subscribe((t) => this.tarefaService.obterTarefas());
     this.form.get('nomeTarefa').reset();
-  }
-
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 }

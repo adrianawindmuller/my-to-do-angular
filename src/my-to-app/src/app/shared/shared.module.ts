@@ -22,11 +22,17 @@ import { MySearchPipe } from './pipes/my-search.pipe';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
+
 @NgModule({
   declarations: [MySearchPipe],
   imports: [CommonModule, HttpClientModule],
   exports: [
+    BrowserAnimationsModule,
+    BrowserModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
@@ -44,6 +50,8 @@ import { AppRoutingModule } from '../app-routing.module';
     MatDialogModule,
     MySearchPipe,
     ScrollingModule,
+    MatMenuModule,
+    AppRoutingModule,
   ],
 })
 export class SharedModule {}

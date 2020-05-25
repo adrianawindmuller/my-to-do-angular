@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TarefaService } from '../shared/tarefa.service';
+import { TarefaService } from '../../../shared/tarefa.service';
 import { Tarefa } from './tarefa.model';
 import { MatRadioChange } from '@angular/material/radio';
 import { Observable} from 'rxjs';

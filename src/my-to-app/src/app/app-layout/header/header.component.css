@@ -1,10 +1,18 @@
-img{
+img {
   width: 30px;
 }
 
-.mat-headline{
+.mat-headline {
   font-weight: bold;
   font-size: 28px;
   color: white;
   padding-left: 10px;
+}
+
+.mat-button {
+  color: white;
+}
+
+a:link {
+  text-decoration: none;
 }

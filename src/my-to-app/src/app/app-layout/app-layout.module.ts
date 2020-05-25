@@ -4,12 +4,17 @@ import { HeaderComponent } from './header/header.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContainerComponent } from './container/container.component';
 import { MainComponent } from './main/main.component';
-import { AppModule } from '../app.module';
-import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { PagesModules } from '../pages/pages.module';
 
 @NgModule({
-  declarations: [HeaderComponent, ContainerComponent, MainComponent],
-  imports: [SharedModule, RouterModule],
+  declarations: [
+    HeaderComponent,
+    ContainerComponent,
+    MainComponent,
+    FooterComponent,
+  ],
+  imports: [SharedModule, PagesModules],
   exports: [ContainerComponent],
 })
 export class AppLayoutModule {}

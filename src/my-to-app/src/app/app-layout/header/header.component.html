@@ -1,6 +1,13 @@
 <mat-toolbar color="primary" fxLayout="row">
-  <mat-toolbar-row fxFlex="70">
+  <mat-toolbar-row fxFlex>
     <img src="../assets/logotipo-icone.png" alt="logoTipo">
-    <h1 class="mat-headline">My To-do</h1>
+    <a [routerLink]="['/']">
+      <h1 class="mat-headline">My To-do</h1>
+    </a>
+  </mat-toolbar-row>
+  <mat-toolbar-row fxFlex fxLayoutAlign="end center">
+    <nav class="pl3">
+      <button mat-raised-button routerLink="/sobre">Sobre</button>
+    </nav>
   </mat-toolbar-row>
 </mat-toolbar>

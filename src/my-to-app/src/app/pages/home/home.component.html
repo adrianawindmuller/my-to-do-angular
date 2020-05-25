@@ -1,11 +1,13 @@
-<div fxLayout="row" fxLayoutAlign="center start" class="pt3 body">
-  <mat-card fxFlex="30">
-    <app-adicionar-tarefa></app-adicionar-tarefa>
-  </mat-card>
-</div>
-<div fxLayout="row" fxLayoutAlign="center start" class="pt2 pb4 body">
-  <mat-card fxFlex="30" class="container, scrollbar" id="style-1">
-    <!-- Aqui exibe as tarefas criadas -->
-    <app-tarefa-container></app-tarefa-container>
-  </mat-card>
+<div class="body">
+  <div fxLayout="row" fxLayoutAlign="center center" class="pt3">
+    <mat-card fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="30%">
+      <app-adicionar-tarefa></app-adicionar-tarefa>
+    </mat-card>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" class="pt2 pb4">
+    <mat-card fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="30%" class="container scrollbar" id="style-1">
+      <!-- Aqui exibe as tarefas criadas -->
+      <app-tarefa-container></app-tarefa-container>
+    </mat-card>
+  </div>
 </div>
