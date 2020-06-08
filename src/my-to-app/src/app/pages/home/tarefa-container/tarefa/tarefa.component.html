@@ -1,7 +1,8 @@
-<mat-card class="mt2 pr0" fxLayout="row" fxLayoutAlign="space-between center">
+<mat-card class="mt2 pr0" fxLayout="row" fxLayoutAlign="space-between center"
+  [class.mat-card-concluida]="tarefa.concluido">
   <div fxFlex>
     <mat-checkbox class="pr1 pl1" [(ngModel)]="tarefa.concluido" (change)="concluirTarefa(tarefa)"></mat-checkbox>
-    <span [class.tarefa-concluida]="tarefa.concluido">{{tarefa.descricao}}</span>
+    <span [class.tarefa-concluida]="tarefa.concluido" (click)="alterarTarefa()">{{tarefa.descricao}}</span>
   </div>
   <div fxFlex="25">
     <button mat-icon-button color="primary" (click)="alterarTarefa()">

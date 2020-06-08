@@ -3,11 +3,14 @@
     <mat-form-field fxFlex>
       <mat-label>Insira uma Tarefa</mat-label>
       <input matInput [(ngModel)]="data.descricao" formControlName="nomeTarefa">
+      <mat-error *ngIf="form.get('nomeTarefa').errors?.required">
+        Insira pelo menos 3 caracteres
+      </mat-error>
     </mat-form-field>
   </div>
   <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
-    <button mat-raised-button (click)="sair()">Sair</button>
-    <button mat-raised-button color="primary" cdkFocusInitial style="color: white" (click)="atualizarTarefa()"
+    <button type="button" mat-raised-button (click)="sair()">Sair</button>
+    <button type="button" mat-raised-button color="primary" style="color: white" (click)="atualizarTarefa()"
       [disabled]="!form.valid && !form.pristine">Salvar</button>
   </div>
 </form>

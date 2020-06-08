@@ -1,8 +1,12 @@
-.mat-card{
+.mat-card {
   padding: 5px;
 }
 
-.tarefa-concluida{
+.tarefa-concluida {
   font-style: italic;
   text-decoration: line-through;
+}
+
+.mat-card-concluida {
+  background-color: rgb(238, 238, 238);
 }

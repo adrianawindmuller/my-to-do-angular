@@ -1,29 +1,3 @@
 {
-  "tarefa": [
-    {
-      "descricao": "Ir no mercado",
-      "concluido": true,
-      "id": "ehhgx7p7dph"
-    },
-    {
-      "descricao": "ir na farmacia",
-      "concluido": true,
-      "id": "vzifhqst42"
-    },
-    {
-      "descricao": "comprar banana",
-      "concluido": false,
-      "id": "djc2bvj0y2j"
-    },
-    {
-      "descricao": "comprar maça",
-      "concluido": false,
-      "id": "u05eettx5pr"
-    },
-    {
-      "descricao": "ir na padaria",
-      "concluido": false,
-      "id": "25hikvn7lwp"
-    }
-  ]
+  "tarefa": []
 }

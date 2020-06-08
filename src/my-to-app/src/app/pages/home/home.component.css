@@ -1,10 +1,18 @@
 .body {
-  background: rgb(235, 235, 235);
-  background: linear-gradient(
-    303deg,
-    rgba(235, 235, 235, 1) 10%,
-    rgba(250, 250, 250, 1) 82%
-  );
+  display: block;
+  position: relative;
+}
+
+.body::after {
+  content: "";
+  background: url("../../../assets/flores.png") center;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .scrollbar {
