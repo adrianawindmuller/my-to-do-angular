@@ -1,22 +1,37 @@
-<div fxLayout="row" fxLayoutAlign="space-between stretch">
-  <mat-form-field fxFlex>
-    <mat-label>Pesquisar</mat-label>
-    <input matInput [(ngModel)]="pesquisa">
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
-</div>
-<div fxLayout="row" fxLayoutAlign="center center">
-  <mat-radio-group fxFlex name="opcao" (change)="filtrarEstadoTarefa($event)">
-    <mat-radio-button class="pl1" value="todas" name="opcao" checked>
-      Todas
-    </mat-radio-button>
-    <mat-radio-button class="pl1" value="concluidas" name="opcao">Concluidas
-    </mat-radio-button>
-    <mat-radio-button class="pl1" value="naoConcluidas" name="opcao">Não
-      Concluidas
-    </mat-radio-button>
-  </mat-radio-group>
+<div *ngIf="tarefas$ | async; let tarefas">
+
+  <div fxLayout="row" fxLayoutAlign="space-between stretch">
+    <mat-form-field fxFlex>
+      <mat-label>Pesquisar</mat-label>
+      <input matInput [(ngModel)]="pesquisa">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-radio-group fxFlex name="opcao" (change)="filtrarEstadoTarefa($event)">
+      <mat-radio-button class="pl1" value="todas" name="opcao" checked>
+        Todas
+      </mat-radio-button>
+      <mat-radio-button class="pl1" value="concluidas" name="opcao">Concluidas
+      </mat-radio-button>
+      <mat-radio-button class="pl1" value="naoConcluidas" name="opcao">Não
+        Concluidas
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <div *ngIf="tarefas.length; else semTarefa">
+    <app-tarefa *ngFor="let item of tarefas | mySearch:pesquisa" [tarefa]="item" class="container">
+    </app-tarefa>
+  </div>
+
+  <ng-template #semTarefa>
+    <div fxLayout="column" fxLayoutAlign="center center" class="pt2">
+      <span class="mat-h2 bold">Ops, não existem tarefas.</span>
+      <p>Que tal registrar uma nova tarefa?</p>
+      <img src="../../../../assets/cat.png" alt="cat" width="50%" class="pt3">
+    </div>
+  </ng-template>
 
 </div>
-<app-tarefa *ngFor="let item of tarefas$ | async | mySearch:pesquisa" [tarefa]="item" class="container">
-</app-tarefa>

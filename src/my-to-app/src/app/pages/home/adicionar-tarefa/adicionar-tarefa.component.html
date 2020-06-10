@@ -2,7 +2,7 @@
   <mat-form-field fxFlex class="mr1">
     <mat-label>Insira uma Tarefa</mat-label>
     <input matInput formControlName="nomeTarefa" placeholder="Ex. ir ao mercado">
-    <mat-error *ngIf="form.get('nomeTarefa').touched || form.get('nomeTarefa').dirty">
+    <mat-error *ngIf="form.get('nomeTarefa').dirty">
       Insira pelo menos 3 caracteres
     </mat-error>
     <button matSuffix mat-icon-button color="primary" (click)="adicionarTarefa()"

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TarefaService } from '../../../shared/tarefa.service';
 import { Tarefa } from './tarefa.model';
 import { MatRadioChange } from '@angular/material/radio';
-import { Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tarefa-container',
@@ -18,6 +18,8 @@ export class TarefaContainerComponent implements OnInit {
   ngOnInit() {
     this.tarefas$ = this.tarefaService.tarefas;
     this.tarefaService.obterTarefas();
+
+    let temTarefa = this.tarefas$;
   }
 
   filtrarEstadoTarefa($event: MatRadioChange): void {
@@ -33,5 +35,4 @@ export class TarefaContainerComponent implements OnInit {
         break;
     }
   }
-
 }
