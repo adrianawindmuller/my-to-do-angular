@@ -1,10 +1,5 @@
 div {
-  background: rgb(235, 235, 235);
-  background: linear-gradient(
-    303deg,
-    rgba(235, 235, 235, 1) 10%,
-    rgba(250, 250, 250, 1) 82%
-  );
+  background-color: #fbfbfb;
 }
 
 .mat-h1 {

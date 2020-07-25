@@ -1,13 +1,14 @@
-<mat-toolbar color="primary" fxLayout="row">
+<mat-toolbar fxLayout="row">
   <mat-toolbar-row fxFlex>
-    <img src="../assets/logotipo-icone.png" alt="logoTipo">
+  <mat-icon color="primary">done</mat-icon>
     <a [routerLink]="['/']">
       <h1 class="mat-headline">My To-do</h1>
     </a>
   </mat-toolbar-row>
   <mat-toolbar-row fxFlex fxLayoutAlign="end center">
     <nav class="pl3">
-      <button mat-button routerLink="/sobre">Sobre</button>
+      <button mat-button color="primary" routerLink="/sobre"><strong> Sobre</strong></button>
     </nav>
   </mat-toolbar-row>
 </mat-toolbar>
+

@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styles: [
     `
       footer {
-        background-color: #ec407a;
-        color: white;
+        background-color: #f5f5f5;
+        color:  rgb(77, 77, 77);
+        border-top: 1px solid rgb(212 211 211)
       }
     `,
   ],
