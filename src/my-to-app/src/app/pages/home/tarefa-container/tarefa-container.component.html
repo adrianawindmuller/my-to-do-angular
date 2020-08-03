@@ -1,14 +1,6 @@
-<div *ngIf="tarefas$ | async; let tarefas">
+<div *ngIf="tarefas$ | async; let tarefas" class="teste">
 
-    <div fxLayout="row" fxLayoutAlign="space-between stretch">
-        <mat-form-field fxFlex>
-            <mat-label>Pesquisar</mat-label>
-            <input matInput [(ngModel)]="pesquisa">
-            <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-    </div>
-
-    <div fxLayout="row" fxLayoutAlign="center center">
+    <!-- <div fxLayout="row" fxLayoutAlign="center center">
         <mat-radio-group fxFlex name="opcao" (change)="filtrarEstadoTarefa($event)">
             <mat-radio-button class="pl1" value="todas" name="opcao" checked>
                 Todas
@@ -19,7 +11,8 @@
                 Concluidas
             </mat-radio-button>
         </mat-radio-group>
-    </div>
+    </div> -->
+    <app-adicionar-tarefa></app-adicionar-tarefa>
 
     <div *ngIf="tarefas.length; else semTarefa">
         <app-tarefa *ngFor="let item of tarefas | mySearch:pesquisa" [tarefa]="item" class="container">
