@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Tarefa } from '../pages/home/tarefa-container/tarefa.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable, pipe, BehaviorSubject, Subscription } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -42,5 +42,10 @@ export class TarefaService {
     });
   }
 
-  
+
+  getTarefas(){
+      return this.http.get<Tarefa>(this.API)
+  }
+
+
 }

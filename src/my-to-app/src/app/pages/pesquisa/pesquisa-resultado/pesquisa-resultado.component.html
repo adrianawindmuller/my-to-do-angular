@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="body">
+    <mat-card fxFlex="60" class="my3">
+        <p class=" p3 h3"> Pesquisando: {{pesquisa}} </p>
+        <div *ngIf="tarefas" fxLayout="row" fxLayoutAlign="center center">
+            <mat-list fxFill>
+                <mat-list-item *ngFor="let item of tarefas | mySearch: pesquisa">
+                    {{item.descricao}}
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <!-- <ng-template #semTarefa fxLayout="row" fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="center center" class="pt2">
+                <span class="mat-h2 bold">Ops, não existem tarefas.</span>
+                <p>Que tal registrar uma nova tarefa?</p>
+                <img src="../../../../assets/cat.png" alt="cat" width="50%" class="pt3">
+            </div>
+        </ng-template> -->
+    </mat-card>
+</div>

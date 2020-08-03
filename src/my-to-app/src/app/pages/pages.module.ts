@@ -9,6 +9,8 @@ import { AlterarTarefaModalComponent } from './home/tarefa-container/alterar-tar
 import { TarefaComponent } from './home/tarefa-container/tarefa/tarefa.component';
 import { TarefaContainerComponent } from './home/tarefa-container/tarefa-container.component';
 import { AdicionarTarefaComponent } from './home/adicionar-tarefa/adicionar-tarefa.component';
+import { PesquisaInputComponent } from './pesquisa/pesquisa-input/pesquisa-input.component';
+import { PesquisaResultadoComponent } from './pesquisa/pesquisa-resultado/pesquisa-resultado.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AdicionarTarefaComponent } from './home/adicionar-tarefa/adicionar-tare
     TarefaComponent,
     AlterarTarefaModalComponent,
     RemoverTarefaModalComponent,
+    PesquisaResultadoComponent,
+    PesquisaInputComponent,
   ],
   imports: [SharedModule],
   exports: [
@@ -29,6 +33,8 @@ import { AdicionarTarefaComponent } from './home/adicionar-tarefa/adicionar-tare
     TarefaComponent,
     AlterarTarefaModalComponent,
     RemoverTarefaModalComponent,
+    PesquisaResultadoComponent,
+    PesquisaInputComponent,
   ],
 })
 export class PagesModules {}

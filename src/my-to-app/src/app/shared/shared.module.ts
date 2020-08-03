@@ -29,7 +29,9 @@ import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [MySearchPipe],
-  imports: [CommonModule, HttpClientModule],
+  imports: [
+      CommonModule, BrowserModule, HttpClientModule,
+    ],
   exports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -53,5 +55,6 @@ import { AppRoutingModule } from '../app-routing.module';
     MatMenuModule,
     AppRoutingModule,
   ],
+
 })
 export class SharedModule {}

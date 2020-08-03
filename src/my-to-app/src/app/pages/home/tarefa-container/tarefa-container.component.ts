@@ -18,8 +18,6 @@ export class TarefaContainerComponent implements OnInit {
   ngOnInit() {
     this.tarefas$ = this.tarefaService.tarefas;
     this.tarefaService.obterTarefas();
-
-    let temTarefa = this.tarefas$;
   }
 
   filtrarEstadoTarefa($event: MatRadioChange): void {

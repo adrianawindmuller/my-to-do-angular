@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,7 +7,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
 
-  ngOnInit(): void {}
+    pesquisa: boolean
+    constructor( private route: Router) {}
+
+    ngOnInit(): void {}
+
+    routearParaPesquisa(){
+        if(this.route.url != '/pesquisa'){
+            this.route.navigate(['pesquisa'])
+        }
+    }
+
+    togglePesquisa(){
+        this.pesquisa = !this.pesquisa
+    }
+
 }

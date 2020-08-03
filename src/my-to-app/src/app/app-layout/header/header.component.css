@@ -1,15 +1,32 @@
-
 .mat-headline {
-  font-weight: bold;
-  font-size: 20px;
-  color: rgb(77, 77, 77);
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(77, 77, 77);
 }
-
 
 a:link {
-  text-decoration: none;
+    text-decoration: none;
 }
 
-.mat-toolbar{
-    border-bottom: 1px solid rgb(212 211 211)
+.mat-toolbar {
+    border-bottom: 1px solid rgb(212 211 211);
+}
+
+.avatar {
+    background: url('../../../assets/avatar.jpg') bottom center no-repeat;
+    background-size: 60px 60px;
+}
+
+.mat-form-field-appearance-outline {
+    padding: 0px;
+    font-size: 14px;
+    top: 12px;
+}
+
+.mat-toolbar-multiple-rows {
+    min-height: 75px;
+}
+
+.mat-form-field-outline {
+    background-color: white !important;
 }
