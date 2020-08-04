@@ -11,7 +11,10 @@ import { TarefaContainerComponent } from './home/tarefa-container/tarefa-contain
 import { AdicionarTarefaComponent } from './home/adicionar-tarefa/adicionar-tarefa.component';
 import { PesquisaInputComponent } from './pesquisa/pesquisa-input/pesquisa-input.component';
 import { PesquisaResultadoComponent } from './pesquisa/pesquisa-resultado/pesquisa-resultado.component';
-
+import { LoginComponent } from './login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -23,8 +26,9 @@ import { PesquisaResultadoComponent } from './pesquisa/pesquisa-resultado/pesqui
     RemoverTarefaModalComponent,
     PesquisaResultadoComponent,
     PesquisaInputComponent,
+    LoginComponent,
   ],
-  imports: [SharedModule],
+  imports: [SharedModule,ToastrModule.forRoot()],
   exports: [
     HomeComponent,
     AboutComponent,
@@ -35,6 +39,7 @@ import { PesquisaResultadoComponent } from './pesquisa/pesquisa-resultado/pesqui
     RemoverTarefaModalComponent,
     PesquisaResultadoComponent,
     PesquisaInputComponent,
+     LoginComponent,
   ],
 })
 export class PagesModules {}
