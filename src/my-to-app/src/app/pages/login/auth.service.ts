@@ -8,7 +8,7 @@ export class AuthService {
 
   constructor() { }
 
-    estaAutenticado(email: string, senha: string): boolean{
+    estaAutenticado(email?: string, senha?: string): boolean{
         return (email === 'demo@gmail.com' && senha == 'xf563a7s')
     }
 }

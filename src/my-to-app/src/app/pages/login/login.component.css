@@ -1,6 +1,5 @@
 .login {
-    min-height: 490px;
-    max-height: 500px;
+    height: 100%;
     background: rgb(241, 95, 121);
     background: linear-gradient(163deg, rgba(241, 95, 121, 1) 29%, rgba(178, 69, 146, 1) 100%);
 }

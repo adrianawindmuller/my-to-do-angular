@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/pages/login/auth.service';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-container',
@@ -25,7 +27,22 @@ import { Component, OnInit } from '@angular/core';
   ],
 })
 export class ContainerComponent implements OnInit {
-  constructor() {}
+    isLogin: boolean
 
-  ngOnInit(): void {}
+    constructor( private route: Router ) {
+        this.route.events.subscribe((event: any) => {
+            if (event instanceof NavigationEnd) {
+                if (event.url === '/login') {
+                this.isLogin= false;
+                } else {
+                this.isLogin= true;
+                }
+            }
+            });
+    }
+
+  ngOnInit(): void {
+  }
+
+
 }

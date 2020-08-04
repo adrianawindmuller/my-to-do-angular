@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
     pesquisa: boolean
-    constructor( private route: Router) {}
+    constructor( private route: Router, private toastr: ToastrService) {}
 
     ngOnInit(): void {}
 
@@ -21,6 +22,10 @@ export class HeaderComponent implements OnInit {
 
     togglePesquisa(){
         this.pesquisa = !this.pesquisa
+    }
+
+    sair(){
+        this.route.navigate(['login'])
     }
 
 }
