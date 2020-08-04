@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="login">
+    <mat-card fxFlex="30">
+        <form [formGroup]="loginForm" class="py2" (ngSubmit)="login()">
+            <p class="h2 center pb3 bold text-login">Login</p>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-form-field fxFlex="90" appearance="outline">
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-error *ngIf="this.loginForm.get('email').errors?.required">Este campo é obrigatório</mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-form-field fxFlex="90" appearance="outline">
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha" formControlName="senha">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="this.loginForm.get('email').errors?.required">Este campo é obrigatório
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+            </div>
+            <p class="pt3"><strong>E-mail:</strong> demo@gmail.com</p>
+            <p><strong>Senha:</strong> xf563a7s</p>
+        </form>
+    </mat-card>
+</div>
