@@ -32,7 +32,7 @@ export class ContainerComponent implements OnInit {
     constructor( private route: Router ) {
         this.route.events.subscribe((event: any) => {
             if (event instanceof NavigationEnd) {
-                if (event.url === '/login') {
+                if (event.url === '/login' || event.url == '/') {
                 this.isLogin= false;
                 } else {
                 this.isLogin= true;
