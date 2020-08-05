@@ -5,10 +5,14 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+    authenticated: boolean
 
   constructor() { }
 
-    estaAutenticado(email?: string, senha?: string): boolean{
-        return (email === 'demo@gmail.com' && senha == 'xf563a7s')
+    isAuthenticated(email?: string, senha?: string): boolean{
+        if (email === 'demo@gmail.com' && senha == 'xf563a7s'){
+            this.authenticated = true
+        }
+        return this.authenticated
     }
 }

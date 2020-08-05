@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       if(this.loginForm.valid){
           const email = this.loginForm.get('email').value
           const senha = this.loginForm.get('senha').value
-        if(this.auth.estaAutenticado(email, senha) == true){
+        if(this.auth.isAuthenticated(email, senha) == true){
             this.route.navigate(['home'])
         }else{
             this.toastr.error('O e-mail ou a senha estão incorretos','',{
