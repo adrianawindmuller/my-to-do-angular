@@ -10,8 +10,10 @@ export class AuthService {
   constructor() { }
 
     isAuthenticated(email?: string, senha?: string): boolean{
-        if (email === 'demo@gmail.com' && senha == 'xf563a7s'){
+        if (email === 'teste@gmail.com' && senha == 'teste'){
             this.authenticated = true
+            localStorage.setItem('authenticated',JSON.stringify(email))
+            localStorage.setItem('authenticated',JSON.stringify(senha))
         }
         return this.authenticated
     }

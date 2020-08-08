@@ -44,7 +44,7 @@ export class TarefaService {
 
 
   getTarefas(){
-      return this.http.get<Tarefa>(this.API)
+      return this.http.get<Tarefa[]>(this.API)
   }
 
 

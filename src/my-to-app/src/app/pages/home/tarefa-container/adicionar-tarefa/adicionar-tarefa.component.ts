@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Tarefa } from '../tarefa-container/tarefa.model';
-import { TarefaService } from '../../../shared/tarefa.service';
-import { ValidatorInput } from '../../../shared/validator-input';
+import { Tarefa } from '../../tarefa-container/tarefa.model';
+import { TarefaService } from '../../../../shared/tarefa.service';
+import { ValidatorInput } from '../../../../shared/validator-input';
 import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-adicionar-tarefa',

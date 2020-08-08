@@ -1,4 +1,4 @@
-<div *ngIf="tarefas$ | async; let tarefas" class="teste">
+<div *ngIf="tarefas$ | async; let tarefas">
 
     <!-- <div fxLayout="row" fxLayoutAlign="center center">
         <mat-radio-group fxFlex name="opcao" (change)="filtrarEstadoTarefa($event)">
@@ -14,13 +14,34 @@
     </div> -->
     <app-adicionar-tarefa></app-adicionar-tarefa>
 
-    <div *ngIf="tarefas.length; else semTarefa">
-        <app-tarefa *ngFor="let item of tarefas | mySearch:pesquisa" [tarefa]="item" class="container">
+    <!-- <div *ngIf="tarefas.length; else semTarefa" cdkDropList (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="tarefas">
+        <app-tarefa *ngFor="let item of tarefas | mySearch:pesquisa" [tarefa]="item" cdkDrag>
         </app-tarefa>
-    </div>
+    </div> -->
+
+    <mat-list *ngIf="tarefas.length; else semTarefa" cdkDropList (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="tarefas">
+        <mat-list-item *ngFor="let item of tarefas | mySearch:pesquisa" cdkDrag
+            [class.mat-card-concluida]="item.concluido" fxLayout="column">
+            <div fxFlex="70" fxLayoutAlign="start center">
+                <mat-checkbox class="pr1 pl1" [(ngModel)]="item.concluido" (change)="concluirTarefa(item)">
+                </mat-checkbox>
+                <span [class.tarefa-concluida]="item.concluido" (click)="alterarTarefa()">{{item.descricao}}</span>
+            </div>
+            <div fxLayoutAlign="end center">
+                <button mat-icon-button color="primary" (click)="alterarTarefa(item)">
+                    <mat-icon>create</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" (click)="removerTarefa(item)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </mat-list-item>
+    </mat-list>
 
     <ng-template #semTarefa>
-        <div fxLayout="column" fxLayoutAlign="center center" class="pt2">
+        <div fxLayout="column" fxLayoutAlign="center center" class="mt2">
             <span class="mat-h2 bold">Ops, não existem tarefas.</span>
             <p>Que tal registrar uma nova tarefa?</p>
             <img src="../../../../assets/cat.png" alt="cat" width="50%" class="pt3">

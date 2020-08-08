@@ -26,6 +26,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
+import {DragDropModule} from '@angular/cdk/drag-drop'
 
 @NgModule({
   declarations: [MySearchPipe],
@@ -54,6 +55,7 @@ import { AppRoutingModule } from '../app-routing.module';
     ScrollingModule,
     MatMenuModule,
     AppRoutingModule,
+    DragDropModule
   ],
 
 })

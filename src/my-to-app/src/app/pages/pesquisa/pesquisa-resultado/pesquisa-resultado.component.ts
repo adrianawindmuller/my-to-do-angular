@@ -18,12 +18,7 @@ export class PesquisaResultadoComponent implements OnInit {
     ngOnInit(): void {
 
         this.tarefaService.getTarefas().subscribe( dados => this.tarefas = dados)
-
         this.servicoPesquisa.novaPesquisa.subscribe(pesquisa => this.pesquisa = pesquisa)
-
-        // this.tarefas$ = this.tarefaService.tarefas;
-        // this.tarefaService.obterTarefas();
-
     }
 
 

@@ -3,6 +3,10 @@ import { TarefaService } from '../../../shared/tarefa.service';
 import { Tarefa } from './tarefa.model';
 import { MatRadioChange } from '@angular/material/radio';
 import { Observable } from 'rxjs';
+import { CdkDragDrop, moveItemInArray, CdkDragMove } from '@angular/cdk/drag-drop';
+import { MatDialog } from '@angular/material/dialog';
+import { RemoverTarefaModalComponent } from './remover-tarefa-modal/remover-tarefa-modal.component';
+import { AlterarTarefaModalComponent } from './alterar-tarefa-modal/alterar-tarefa-modal.component';
 
 @Component({
   selector: 'app-tarefa-container',
@@ -13,7 +17,7 @@ export class TarefaContainerComponent implements OnInit {
   pesquisa: string;
   tarefas$: Observable<Tarefa[]>;
 
-  constructor(private tarefaService: TarefaService) {}
+  constructor(private tarefaService: TarefaService, public modal: MatDialog) {}
 
   ngOnInit() {
     this.tarefas$ = this.tarefaService.tarefas;
@@ -33,4 +37,44 @@ export class TarefaContainerComponent implements OnInit {
         break;
     }
   }
+
+  drop(event: CdkDragDrop<any>) {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+  }
+
+  removerTarefa(tarefa: Tarefa) {
+    const dialogRef = this.modal.open(RemoverTarefaModalComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe((excluir) => {
+      if (excluir) {
+        this.tarefaService
+          .removerTarefa(tarefa.id)
+          .subscribe((result) => this.tarefaService.obterTarefas());
+      }
+    });
+  }
+
+  alterarTarefa(tarefa: Tarefa) {
+    const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
+      width: '400px',
+      data: { id: tarefa.id, descricao: tarefa.descricao },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      tarefa.descricao = result.descricao;
+
+      this.tarefaService
+        .alterarTarefa(tarefa)
+        .subscribe(() => this.tarefaService.obterTarefas());
+    });
+  }
+
+  concluirTarefa(tarefa: Tarefa) {
+    this.tarefaService
+      .alterarTarefa(tarefa)
+      .subscribe(() => this.tarefaService.obterTarefas());
+  }
+
 }
