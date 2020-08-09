@@ -1,6 +1,7 @@
 .body {
     display: block;
     position: relative;
+    min-height: 490px;
 }
 
 .body::after {
@@ -16,7 +17,7 @@
 }
 
 .scrollbar {
-    height: 400px;
+    height: 500px;
     overflow: auto;
 }
 
@@ -38,5 +39,6 @@
 }
 
 .mat-card {
-    height: 500px;
+    max-height: 500px;
+    min-height: 100px;
 }

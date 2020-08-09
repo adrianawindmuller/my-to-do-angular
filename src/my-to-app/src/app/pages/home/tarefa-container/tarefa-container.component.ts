@@ -5,7 +5,7 @@ import { MatRadioChange } from '@angular/material/radio';
 import { Observable } from 'rxjs';
 import { CdkDragDrop, moveItemInArray, CdkDragMove } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
-import { RemoverTarefaModalComponent } from './remover-tarefa-modal/remover-tarefa-modal.component';
+import { ModalConfirmComponent } from '../../../shared/modal-confirm/modal-confirm.component';
 import { AlterarTarefaModalComponent } from './alterar-tarefa-modal/alterar-tarefa-modal.component';
 
 @Component({
@@ -43,10 +43,10 @@ export class TarefaContainerComponent implements OnInit {
   }
 
   removerTarefa(tarefa: Tarefa) {
-    const dialogRef = this.modal.open(RemoverTarefaModalComponent, {
+    const dialogRef = this.modal.open(ModalConfirmComponent, {
       width: '400px',
     });
-
+    dialogRef.componentInstance.configure('Deseja mesmo excluir a tarefa?')
     dialogRef.afterClosed().subscribe((excluir) => {
       if (excluir) {
         this.tarefaService

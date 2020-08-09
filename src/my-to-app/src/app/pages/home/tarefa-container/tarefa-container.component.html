@@ -27,7 +27,7 @@
             <div fxFlex="70" fxLayoutAlign="start center">
                 <mat-checkbox class="pr1 pl1" [(ngModel)]="item.concluido" (change)="concluirTarefa(item)">
                 </mat-checkbox>
-                <span [class.tarefa-concluida]="item.concluido" (click)="alterarTarefa()">{{item.descricao}}</span>
+                <span [class.tarefa-concluida]="item.concluido" (click)="alterarTarefa(item)">{{item.descricao}}</span>
             </div>
             <div fxLayoutAlign="end center">
                 <button mat-icon-button color="primary" (click)="alterarTarefa(item)">

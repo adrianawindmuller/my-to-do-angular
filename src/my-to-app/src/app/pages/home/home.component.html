@@ -1,9 +1,41 @@
 <div class="body">
-    <div fxLayout="row" fxLayoutAlign="center center" class="pt2 pb4">
-        <mat-card fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="30%" class="container scrollbar"
-            id="style-1">
+    <div fxLayout="row" fxLayoutAlign="start start" class="pt2 pb4 ">
+        <!-- <mat-card fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%" fxFlex="25"
+            class="container scrollbar ml2 mat-card-1" id="style-1">
+            <p class="aling-center">Nome da lista</p>
+        <app-tarefa-container></app-tarefa-container>
+        </mat-card> -->
+
+
+        <mat-card *ngFor="let item of novaLista" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%"
+            fxFlex="25" class="container scrollbar ml2 mat-card-1" id="style-1">
+            <div fxLayout="row">
+                <span class="aling-center" fxFlex="50" fxLayoutAlign="start center">
+                    {{item.nome}} </span>
+                <div fxFlex="50" fxLayoutAlign="end center">
+                    <button matSuffix mat-icon-button color="primary" type="button" (click)="removerLista(item)">
+                        <mat-icon matSuffix>delete_outline</mat-icon>
+                    </button>
+                </div>
+            </div>
             <!-- Aqui exibe as tarefas criadas -->
             <app-tarefa-container></app-tarefa-container>
         </mat-card>
+
+
+
+        <div [formGroup]="form" class="ml2" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%" fxFlex="25">
+            <mat-form-field fxFill appearance="outline">
+                <mat-label>Nova lista</mat-label>
+                <input matInput type="text" formControlName="nome">
+                <button matSuffix mat-icon-button color="primary" (click)="adiconarLista()" [disabled]="!form.valid">
+                    <mat-icon matSuffix>add</mat-icon>
+                </button>
+                <mat-error *ngIf="form.get('nome').dirty">
+                    Insira pelo menos 3 caracteres
+                </mat-error>
+            </mat-form-field>
+        </div>
+
     </div>
 </div>
