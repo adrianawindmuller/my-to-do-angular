@@ -27,11 +27,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import {DragDropModule} from '@angular/cdk/drag-drop'
+import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
 
 @NgModule({
-  declarations: [MySearchPipe],
+  declarations: [MySearchPipe, ModalConfirmComponent],
   imports: [
-      CommonModule, BrowserModule, HttpClientModule,
+      CommonModule, BrowserModule, BrowserAnimationsModule,
+      HttpClientModule, MatButtonModule, MatDialogModule, FlexLayoutModule,
     ],
   exports: [
     BrowserAnimationsModule,
@@ -55,7 +57,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop'
     ScrollingModule,
     MatMenuModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    ModalConfirmComponent
   ],
 
 })
