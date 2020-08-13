@@ -6,18 +6,14 @@ import { AboutComponent } from './about/about.component';
 
 import { AlterarTarefaModalComponent } from './home/tarefa-container/alterar-tarefa-modal/alterar-tarefa-modal.component';
 import { TarefaContainerComponent } from './home/tarefa-container/tarefa-container.component';
-import { AdicionarTarefaComponent } from './home/tarefa-container/adicionar-tarefa/adicionar-tarefa.component';
 import { PesquisaInputComponent } from './pesquisa/pesquisa-input/pesquisa-input.component';
 import { PesquisaResultadoComponent } from './pesquisa/pesquisa-resultado/pesquisa-resultado.component';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     HomeComponent,
     AboutComponent,
-    AdicionarTarefaComponent,
     TarefaContainerComponent,
     AlterarTarefaModalComponent,
     PesquisaResultadoComponent,
@@ -28,7 +24,6 @@ import { CommonModule } from '@angular/common';
   exports: [
     HomeComponent,
     AboutComponent,
-    AdicionarTarefaComponent,
     TarefaContainerComponent,
     AlterarTarefaModalComponent,
     PesquisaResultadoComponent,

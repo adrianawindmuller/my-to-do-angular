@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ValidatorInput } from 'src/app/shared/validator-input';
-import { ListaService } from 'src/app/shared/lista.service';
-import { Lista } from './tarefa-container/lista.model';
+import { Lista } from './tarefa-container/tarefa-lista.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalConfirmComponent } from 'src/app/shared/modal-confirm/modal-confirm.component';
+import { TarefaService } from 'src/app/shared/tarefa.service';
 
 @Component({
   selector: 'app-home',
@@ -12,27 +12,28 @@ import { ModalConfirmComponent } from 'src/app/shared/modal-confirm/modal-confir
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-    novaLista: Lista[]
-
+    listas: Lista[]
     form: FormGroup
 
-  constructor(private fb: FormBuilder, private listaService:ListaService, public modal: MatDialog ) {}
+  constructor(private fb: FormBuilder, private tarefaService:TarefaService, public modal: MatDialog ) {}
 
   ngOnInit(): void {
-      this.listaService.getLista().subscribe(result => this.novaLista = result)
+      this.tarefaService.getListas().subscribe(result => this.listas = result)
       this.form = this.fb.group({
           nome: ['', ValidatorInput]
       })
   }
 
-  adiconarLista(){
+  adiconarLista() {
    if(this.form.invalid){
        return
    }
-   const newLista = this.form.value
-   this.listaService.adicionarLista(newLista)
-        .subscribe(r => this.listaService.getLista()
-            .subscribe(r=> this.novaLista = r))
+
+   let lista = new Lista(this.form.get('nome').value)
+
+   this.tarefaService.addLista(lista).subscribe(() => {
+        this.tarefaService.getListas().subscribe(res => this.listas = res)
+   })
 
     this.form.reset()
   }
@@ -43,13 +44,12 @@ export class HomeComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((excluir) => {
       if (excluir) {
-        this.listaService.deletarLista(lista.id)
-        .subscribe(r => this.listaService.getLista()
-            .subscribe(r => this.novaLista = r))
+        this.tarefaService.deleteLista(lista.id)
+        .subscribe(r => this.tarefaService.getListas()
+            .subscribe(r => this.listas = r))
       }
     });
 
     dialogRef.componentInstance.configure('Deseja mesmo excluir a lista?')
-
   }
 }

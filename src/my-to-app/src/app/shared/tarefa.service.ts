@@ -2,48 +2,39 @@ import { Injectable } from '@angular/core';
 import { Tarefa } from '../pages/home/tarefa-container/tarefa.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
-import { Lista } from '../pages/home/tarefa-container/lista.model';
+import { Lista } from '../pages/home/tarefa-container/tarefa-lista.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class TarefaService {
-  private API_tarefa = 'http://localhost:3000/tarefa';
+   private API_lista ='http://localhost:3000/lista';
 
+    constructor(private http: HttpClient) {}
 
-  private _tarefas = new BehaviorSubject<Tarefa[]>([]);
-
-  constructor(private http: HttpClient) {}
-
-  adicionarTarefa(tarefa: Tarefa): Observable<Tarefa[]> {
-    return this.http.post<Tarefa[]>(this.API_tarefa, tarefa);
+  addLista(lista: Lista): Observable<Lista>{
+      return this.http.post<Lista>(this.API_lista, lista)
   }
 
-  get tarefas() {
-    return this._tarefas.asObservable();
+  deleteLista(id: string){
+    return this.http.delete(`${this.API_lista}/${id}`)
   }
 
-  obterTarefas(concluido?: boolean): Subscription {
-    let url =
-      concluido == undefined // ()
-        ? this.API_tarefa // if
-        : `${this.API_tarefa}?concluido=${concluido}`; //false
-
-    return this.http
-      .get<Tarefa[]>(url)
-      .subscribe((result) => this._tarefas.next(result));
+  updateLista(lista: Lista): Observable<Lista> {
+      return this.http.put<Lista>(`${this.API_lista}/${lista.id}`, lista)
   }
 
-  removerTarefa(id: string) {
-    return this.http.delete(`${this.API_tarefa}/${id}`);
+  getListaId(id: string){
+       return this.http.get<Lista>(`${this.API_lista}/${id}`)
   }
+
+  getListas(){
+    return this.http.get<Lista[]>(this.API_lista)
+  }
+
 
   alterarTarefa(tarefa: Tarefa) {
-    return this.http.put(`${this.API_tarefa}/${tarefa.id}`, tarefa)
-  }
-
-
-  getTarefas(){
-      return this.http.get<Tarefa[]>(this.API_tarefa)
+    return this.http.put(`${this.API_lista}/${tarefa}/${tarefa.id}`, tarefa)
   }
 
 }

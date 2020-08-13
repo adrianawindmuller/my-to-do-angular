@@ -1,13 +1,7 @@
 <div class="body">
     <div fxLayout="row" fxLayoutAlign="start start" class="pt2 pb4 ">
-        <!-- <mat-card fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%" fxFlex="25"
-            class="container scrollbar ml2 mat-card-1" id="style-1">
-            <p class="aling-center">Nome da lista</p>
-        <app-tarefa-container></app-tarefa-container>
-        </mat-card> -->
 
-
-        <mat-card *ngFor="let item of novaLista" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%"
+        <mat-card *ngFor="let item of listas" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%"
             fxFlex="25" class="container scrollbar ml2 mat-card-1" id="style-1">
             <div fxLayout="row">
                 <span class="aling-center" fxFlex="50" fxLayoutAlign="start center">
@@ -18,11 +12,8 @@
                     </button>
                 </div>
             </div>
-            <!-- Aqui exibe as tarefas criadas -->
-            <app-tarefa-container></app-tarefa-container>
+            <app-tarefa-container [lista]="item"></app-tarefa-container>
         </mat-card>
-
-
 
         <div [formGroup]="form" class="ml2" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%" fxFlex="25">
             <mat-form-field fxFill appearance="outline">

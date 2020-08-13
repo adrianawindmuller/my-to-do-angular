@@ -1,38 +1,30 @@
 {
-  "tarefa": [
-    {
-      "descricao": "banana",
-      "concluido": false,
-      "id": "qovnw0ene5h"
-    },
-    {
-      "descricao": "maças",
-      "concluido": false,
-      "id": "89bng7wfvvh"
-    },
-    {
-      "descricao": "ssssssssss",
-      "concluido": false,
-      "id": "1j0z3swwsqb"
-    },
-    {
-      "descricao": "ssssssssssss",
-      "concluido": false,
-      "id": "68zmxiymv5p"
-    },
-    {
-      "descricao": "dddddddddd",
-      "concluido": false,
-      "id": "1ph126y5q7m"
-    }
-  ],
   "lista": [
     {
-      "nome": "ssssssssssssss",
+      "nome": "sssssssssssss",
+      "tarefas": [
+        {
+          "descricao": "aaaaaaaaaaaaaa",
+          "concluido": false,
+          "id": "iirsiljfm7o"
+        }
+      ],
       "id": 1
     },
     {
-      "nome": "lista de compras",
+      "nome": "sssssssssssssssssssss",
+      "tarefas": [
+        {
+          "descricao": "aaaaaaaaaaaaa",
+          "concluido": false,
+          "id": "liagu2fsxx"
+        },
+        {
+          "descricao": "mmmmmmmmmmm",
+          "concluido": false,
+          "id": "bq6iu482l3e"
+        }
+      ],
       "id": 2
     }
   ]

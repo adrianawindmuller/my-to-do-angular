@@ -1,29 +1,23 @@
-<div *ngIf="tarefas$ | async; let tarefas">
+<div>
 
-    <!-- <div fxLayout="row" fxLayoutAlign="center center">
-        <mat-radio-group fxFlex name="opcao" (change)="filtrarEstadoTarefa($event)">
-            <mat-radio-button class="pl1" value="todas" name="opcao" checked>
-                Todas
-            </mat-radio-button>
-            <mat-radio-button class="pl1" value="concluidas" name="opcao">Concluidas
-            </mat-radio-button>
-            <mat-radio-button class="pl1" value="naoConcluidas" name="opcao">Não
-                Concluidas
-            </mat-radio-button>
-        </mat-radio-group>
-    </div> -->
-    <app-adicionar-tarefa></app-adicionar-tarefa>
+    <form [formGroup]="form" novalidate fxLayout="row" fxLayoutAlign="center center">
+        <mat-form-field fxFlex class="mr1" appearance="outline">
+            <mat-label>Insira uma Tarefa</mat-label>
+            <input matInput formControlName="nomeTarefa" placeholder="Ex. ir ao mercado">
+            <button matSuffix mat-icon-button color="primary" (click)="adicionarTarefa()"
+                [disabled]="!form.valid || form.pristine">
+                <mat-icon matSuffix>add</mat-icon>
+            </button>
+            <mat-error *ngIf="form.get('nomeTarefa').dirty">
+                Insira pelo menos 3 caracteres
+            </mat-error>
+        </mat-form-field>
+    </form>
 
-    <!-- <div *ngIf="tarefas.length; else semTarefa" cdkDropList (cdkDropListDropped)="drop($event)"
+    <mat-list *ngIf="tarefasLista, let tarefas" cdkDropList (cdkDropListDropped)="drop($event)"
         [cdkDropListData]="tarefas">
-        <app-tarefa *ngFor="let item of tarefas | mySearch:pesquisa" [tarefa]="item" cdkDrag>
-        </app-tarefa>
-    </div> -->
-
-    <mat-list *ngIf="tarefas.length; else semTarefa" cdkDropList (cdkDropListDropped)="drop($event)"
-        [cdkDropListData]="tarefas">
-        <mat-list-item *ngFor="let item of tarefas | mySearch:pesquisa" cdkDrag
-            [class.mat-card-concluida]="item.concluido" fxLayout="column">
+        <mat-list-item *ngFor="let item of tarefas.tarefas" cdkDrag [class.mat-card-concluida]="item.concluido"
+            fxLayout="column">
             <div fxFlex="70" fxLayoutAlign="start center">
                 <mat-checkbox class="pr1 pl1" [(ngModel)]="item.concluido" (change)="concluirTarefa(item)">
                 </mat-checkbox>
