@@ -22,7 +22,6 @@ export class PesquisaInputComponent implements AfterViewInit {
       this.servicoPesquisa.limparPesquisa(pesquisa)
         this.pesquisa = ""
         this.route.navigate(['home'])
-
     }
 
     inserirPesquisa(pesquisa: string) {

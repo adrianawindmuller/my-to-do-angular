@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
       this.tarefaService.getListas().subscribe(result => this.listas = result)
+
       this.form = this.fb.group({
           nome: ['', ValidatorInput]
       })
@@ -28,7 +29,6 @@ export class HomeComponent implements OnInit {
    if(this.form.invalid){
        return
    }
-
    let lista = new Lista(this.form.get('nome').value)
 
    this.tarefaService.addLista(lista).subscribe(() => {

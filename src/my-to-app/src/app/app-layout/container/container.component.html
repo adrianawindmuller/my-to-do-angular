@@ -1,3 +1,5 @@
-<app-header *ngIf="isLogin"></app-header>
-<app-main></app-main>
-<app-footer *ngIf="isLogin"></app-footer>
+<div style="height: 100vh;">
+    <app-header *ngIf="isLogin"></app-header>
+    <app-main></app-main>
+    <app-footer *ngIf="isLogin" style="bottom: 0px;"></app-footer>
+</div>

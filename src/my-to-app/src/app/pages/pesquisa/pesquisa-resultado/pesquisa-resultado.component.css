@@ -1,20 +1,15 @@
-.mat-card {
-    min-height: 400px;
-}
-
 .body {
-    display: block;
-    position: relative;
+    width: 100%;
+    min-height: 680px;
+    background: rgb(133, 168, 255);
+    background: linear-gradient(
+        163deg,
+        rgba(133, 168, 255, 0.9363095580028886) 26%,
+        rgba(206, 127, 255, 0.8802871490393032) 100%
+    );
 }
 
-.body::after {
-    content: '';
-    background: url('../../../../assets/flores.png') center;
-    opacity: 0.6;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
+.tarefa-concluida {
+    font-style: italic;
+    text-decoration: line-through;
 }

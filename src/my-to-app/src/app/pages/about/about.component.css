@@ -1,16 +1,23 @@
 div {
-  background-color: #fbfbfb;
+    width: 100%;
+    min-height: 680px;
+    background: rgb(133, 168, 255);
+    background: linear-gradient(
+        163deg,
+        rgba(133, 168, 255, 0.9363095580028886) 26%,
+        rgba(206, 127, 255, 0.8802871490393032) 100%
+    );
 }
 
 .mat-h1 {
-  color: #ec407a;
+    color: #ec407a;
 }
 
 h2 {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .mat-card-content {
-  font-size: 16px;
-  line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.8;
 }

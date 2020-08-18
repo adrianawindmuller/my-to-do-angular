@@ -1,23 +1,16 @@
 .body {
-    display: block;
-    position: relative;
-    min-height: 490px;
-}
-
-.body::after {
-    content: '';
-    background: url('../../../assets/flores.png') center;
-    opacity: 0.6;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1;
+    width: 100%;
+    min-height: 680px;
+    background: rgb(133, 168, 255);
+    background: linear-gradient(
+        163deg,
+        rgba(133, 168, 255, 0.9363095580028886) 26%,
+        rgba(206, 127, 255, 0.8802871490393032) 100%
+    );
 }
 
 .scrollbar {
-    height: 500px;
+    height: 400px;
     overflow: auto;
 }
 
@@ -38,7 +31,18 @@
     background-color: rgb(207, 207, 207);
 }
 
-.mat-card {
-    max-height: 500px;
+.container {
+    width: 300px;
+    max-height: 800px;
     min-height: 100px;
+}
+
+.novaLista {
+    width: 300px;
+    text-align: center;
+    background-color: #fdf3fd;
+}
+
+.mat-raised-button.mat-primary {
+    color: white;
 }

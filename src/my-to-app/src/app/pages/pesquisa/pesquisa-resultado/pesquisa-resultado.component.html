@@ -1,19 +1,41 @@
-<div fxLayout="row" fxLayoutAlign="center center" class="body">
-    <mat-card fxFlex="60" class="my3">
-        <p class=" p3 h3"> Pesquisando: {{pesquisa}} </p>
-        <div *ngIf="tarefas" fxLayout="row" fxLayoutAlign="center center">
-            <mat-list fxFill>
-                <mat-list-item *ngFor="let item of tarefas | mySearch: pesquisa">
-                    {{item.descricao}}
-                </mat-list-item>
-            </mat-list>
+<div fxLayout="row" fxLayoutAlign="center start" class="body">
+    <mat-card fxFlex="70" class="my3">
+        <p class="p3 h3"> Pesquisando: {{pesquisa}} </p>
+        <div *ngIf="pesquisa">
+            <mat-card *ngFor="let lista of listas" class="m3">
+                <mat-card-subtitle>
+                    {{lista.nome}}
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <mat-list *ngFor="let tarefa of lista.tarefas | mySearch: pesquisa">
+                        <div>
+                            <div fxFlex="70" fxLayoutAlign="start center">
+                                <mat-checkbox class="pr1 pl1" [(ngModel)]="tarefa.concluido" color="primary"
+                                    (change)="concluirTarefa(lista, tarefa)">
+                                </mat-checkbox>
+                                <span [class.tarefa-concluida]="tarefa.concluido"
+                                    (click)="alterarTarefa(lista, tarefa)">{{tarefa.descricao}}</span>
+                            </div>
+                            <div fxFlex fxLayoutAlign="end center">
+                                <button mat-icon-button color="primary" (click)="alterarTarefa(lista, tarefa)">
+                                    <mat-icon>create</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="removerTarefa(lista, tarefa)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <p *ngIf="!tarefa">Não há tarefas</p>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
         </div>
-        <!-- <ng-template #semTarefa fxLayout="row" fxLayoutAlign="center center">
+        <ng-template #semTarefa fxLayout="row" fxLayoutAlign="center center">
             <div fxLayout="column" fxLayoutAlign="center center" class="pt2">
                 <span class="mat-h2 bold">Ops, não existem tarefas.</span>
                 <p>Que tal registrar uma nova tarefa?</p>
                 <img src="../../../../assets/cat.png" alt="cat" width="50%" class="pt3">
             </div>
-        </ng-template> -->
+        </ng-template>
     </mat-card>
 </div>

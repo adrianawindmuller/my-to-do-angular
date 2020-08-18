@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HeaderComponent implements OnInit {
 
     pesquisa: boolean
-    constructor( private route: Router, private toastr: ToastrService) {}
+    constructor( private route: Router) {}
 
     ngOnInit(): void {}
 

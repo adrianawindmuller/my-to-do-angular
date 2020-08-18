@@ -9,6 +9,8 @@ import { Lista } from './tarefa-lista.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ValidatorInput } from 'src/app/shared/validator-input';
 import { ToastrService } from 'ngx-toastr';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { PesquisaService } from '../../pesquisa/pesquisa.service';
 
 @Component({
   selector: 'app-tarefa-container',
@@ -30,14 +32,17 @@ export class TarefaContainerComponent implements OnInit {
       private toastr: ToastrService) {}
 
   ngOnInit() {
-    this.tarefaService.getListaId(this.lista.id).subscribe(r => this.tarefasLista = r)
+    this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+
+    //  this.servicoPesquisa.novaPesquisa.subscribe(pesquisa => this.pesquisa = pesquisa)
 
     this.form = this.fb.group({
       nomeTarefa: this.fb.control('', ValidatorInput),
     });
+
   }
 
-  adicionarTarefa(): void {
+  adicionarTarefa() {
     let tarefa = new Tarefa(this.form.get('nomeTarefa').value);
     this.lista.tarefas.push(tarefa)
 
@@ -49,7 +54,7 @@ export class TarefaContainerComponent implements OnInit {
     this.form.get('nomeTarefa').reset();
   }
 
-  drop(event: CdkDragDrop<any>) {
+  dragAndDropTarefa(event: CdkDragDrop<any>) {
     moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
   }
 
@@ -57,18 +62,19 @@ export class TarefaContainerComponent implements OnInit {
     const dialogRef = this.modal.open(ModalConfirmComponent, {
       width: '400px',
     });
+
     dialogRef.componentInstance.configure('Deseja mesmo excluir a tarefa?')
     dialogRef.afterClosed().subscribe(() => {
-        this.removerTarefaID(tarefa)
+        this.removerTarefaId(tarefa)
 
         this.tarefaService.updateLista(this.lista).subscribe(() => {
             this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
-            this.toastr.success('Tarefa Adicionada com sucesso')
+            this.toastr.success('Tarefa removida com sucesso')
         })
     })
   }
 
-  removerTarefaID(tarefa: Tarefa){
+  removerTarefaId(tarefa: Tarefa){
     const index = this.lista.tarefas.findIndex(res => res.id == tarefa.id)
 
     if(index > -1){
@@ -76,25 +82,35 @@ export class TarefaContainerComponent implements OnInit {
     }
   }
 
-  alterarTarefa(tarefa: Tarefa) {
+  alterarTarefa(tarefaSelecionada: Tarefa) {
     const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
       width: '400px',
-      data: { id: tarefa.id, descricao: tarefa.descricao },
+      data: { id: tarefaSelecionada.id, descricao: tarefaSelecionada.descricao, concluido: tarefaSelecionada.concluido },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((dadosTarefaAtual) => {
+        this.alterarTarefaId(tarefaSelecionada, dadosTarefaAtual)
 
-      this.tarefaService
-        .alterarTarefa(tarefa)
-        .subscribe(() => this.tarefaService.obterTodasTarefas());
+        this.tarefaService.updateLista(this.lista).subscribe(() => {
+            this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+            this.toastr.success('Tarefa atualizada com sucesso 👏')
+        })
     });
+  }
+
+  alterarTarefaId(tarefaSelecionada: Tarefa, dadosTarefaAtual: Tarefa){
+    const index = this.lista.tarefas.findIndex(res => res.id == tarefaSelecionada.id)
+    this.lista.tarefas[index].descricao = dadosTarefaAtual.descricao
   }
 
   concluirTarefa(tarefa: Tarefa) {
-    this.tarefaService
-      .alterarTarefa(tarefa)
-      .subscribe(() => this.tarefaService.obterTodasTarefas());
-  }
+    const index = this.lista.tarefas.findIndex(res => res.id === tarefa.id)
+    this.lista.tarefas[index].concluido = tarefa.concluido
 
+    this.tarefaService.updateLista(this.lista).subscribe(() => {
+        this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+        this.toastr.success('Tarefa concluida com sucesso 👏')
+    })
+  }
 
 }

@@ -32,7 +32,6 @@ export class TarefaService {
     return this.http.get<Lista[]>(this.API_lista)
   }
 
-
   alterarTarefa(tarefa: Tarefa) {
     return this.http.put(`${this.API_lista}/${tarefa}/${tarefa.id}`, tarefa)
   }

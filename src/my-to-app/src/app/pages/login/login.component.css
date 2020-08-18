@@ -1,5 +1,5 @@
 .login {
-    height: 100%;
+    height: 100vh;
     background: rgb(241, 95, 121);
     background: linear-gradient(163deg, rgba(241, 95, 121, 1) 29%, rgba(178, 69, 146, 1) 100%);
 }

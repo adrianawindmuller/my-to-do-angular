@@ -1,8 +1,7 @@
-<div class="body">
-    <div fxLayout="row" fxLayoutAlign="start start" class="pt2 pb4 ">
+<div class="body pb3">
+    <div fxLayout="row wrap" fxLayoutAlign="start start">
 
-        <mat-card *ngFor="let item of listas" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%"
-            fxFlex="25" class="container scrollbar ml2 mat-card-1" id="style-1">
+        <mat-card *ngFor="let item of listas" class="scrollbar ml3 container mt4" id="style-1">
             <div fxLayout="row">
                 <span class="aling-center" fxFlex="50" fxLayoutAlign="start center">
                     {{item.nome}} </span>
@@ -15,18 +14,18 @@
             <app-tarefa-container [lista]="item"></app-tarefa-container>
         </mat-card>
 
-        <div [formGroup]="form" class="ml2" fxFlex.xs="80%" fxFlex.sm="60%" fxFlex.md="35%" fxFlex.lg="25%" fxFlex="25">
-            <mat-form-field fxFill appearance="outline">
+        <mat-card [formGroup]="form" class="ml3 novaLista mt4" (ngSubmit)="adiconarLista()">
+            <mat-form-field fxFill>
                 <mat-label>Nova lista</mat-label>
                 <input matInput type="text" formControlName="nome">
-                <button matSuffix mat-icon-button color="primary" (click)="adiconarLista()" [disabled]="!form.valid">
-                    <mat-icon matSuffix>add</mat-icon>
-                </button>
                 <mat-error *ngIf="form.get('nome').dirty">
                     Insira pelo menos 3 caracteres
                 </mat-error>
             </mat-form-field>
-        </div>
+            <button matSuffix mat-raised-button color="primary" [disabled]="!form.valid">
+                Adicionar
+            </button>
+        </mat-card>
 
     </div>
 </div>
