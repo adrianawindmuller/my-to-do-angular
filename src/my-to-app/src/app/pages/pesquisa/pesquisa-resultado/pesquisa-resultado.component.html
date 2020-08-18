@@ -14,13 +14,13 @@
                                     (change)="concluirTarefa(lista, tarefa)">
                                 </mat-checkbox>
                                 <span [class.tarefa-concluida]="tarefa.concluido"
-                                    (click)="alterarTarefa(lista, tarefa)">{{tarefa.descricao}}</span>
+                                    (click)="alterarTarefaModal(lista, tarefa)">{{tarefa.descricao}}</span>
                             </div>
                             <div fxFlex fxLayoutAlign="end center">
-                                <button mat-icon-button color="primary" (click)="alterarTarefa(lista, tarefa)">
+                                <button mat-icon-button color="primary" (click)="alterarTarefaModal(lista, tarefa)">
                                     <mat-icon>create</mat-icon>
                                 </button>
-                                <button mat-icon-button color="primary" (click)="removerTarefa(lista, tarefa)">
+                                <button mat-icon-button color="primary" (click)="removerTarefaModal(lista, tarefa)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </div>
@@ -30,12 +30,12 @@
                 </mat-card-content>
             </mat-card>
         </div>
-        <ng-template #semTarefa fxLayout="row" fxLayoutAlign="center center">
+        <!-- <ng-template #semTarefa fxLayout="row" fxLayoutAlign="center center">
             <div fxLayout="column" fxLayoutAlign="center center" class="pt2">
                 <span class="mat-h2 bold">Ops, não existem tarefas.</span>
                 <p>Que tal registrar uma nova tarefa?</p>
                 <img src="../../../../assets/cat.png" alt="cat" width="50%" class="pt3">
             </div>
-        </ng-template>
+        </ng-template> -->
     </mat-card>
 </div>

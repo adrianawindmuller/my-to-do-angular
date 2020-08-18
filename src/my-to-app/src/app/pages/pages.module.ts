@@ -4,8 +4,8 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
-import { AlterarTarefaModalComponent } from './home/tarefa-container/alterar-tarefa-modal/alterar-tarefa-modal.component';
-import { TarefaContainerComponent } from './home/tarefa-container/tarefa-container.component';
+import { AlterarTarefaModalComponent } from './home/tarefas/alterar-tarefa-modal/alterar-tarefa-modal.component';
+import { TarefasComponent } from './home/tarefas/tarefas.component';
 import { PesquisaInputComponent } from './pesquisa/pesquisa-input/pesquisa-input.component';
 import { PesquisaResultadoComponent } from './pesquisa/pesquisa-resultado/pesquisa-resultado.component';
 import { LoginComponent } from './login/login.component';
@@ -14,7 +14,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     HomeComponent,
     AboutComponent,
-    TarefaContainerComponent,
+    TarefasComponent,
     AlterarTarefaModalComponent,
     PesquisaResultadoComponent,
     PesquisaInputComponent,
@@ -24,7 +24,7 @@ import { ToastrModule } from 'ngx-toastr';
   exports: [
     HomeComponent,
     AboutComponent,
-    TarefaContainerComponent,
+    TarefasComponent,
     AlterarTarefaModalComponent,
     PesquisaResultadoComponent,
     PesquisaInputComponent,

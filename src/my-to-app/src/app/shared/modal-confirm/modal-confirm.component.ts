@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TarefaContainerComponent } from '../../pages/home/tarefa-container/tarefa-container.component';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({

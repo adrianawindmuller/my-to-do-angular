@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Tarefa } from '../pages/home/tarefa-container/tarefa.model';
+import { Tarefa } from '../pages/home/tarefas/tarefa.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, Subscription } from 'rxjs';
-import { Lista } from '../pages/home/tarefa-container/tarefa-lista.model';
+import { Lista } from '../pages/home/tarefas/tarefa-lista.model';
 @Injectable({
   providedIn: 'root',
 })

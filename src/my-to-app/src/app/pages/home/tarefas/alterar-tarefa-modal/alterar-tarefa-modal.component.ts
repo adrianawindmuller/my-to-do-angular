@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TarefaContainerComponent } from '../tarefa-container.component';
+import { TarefasComponent } from '../tarefas.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ValidatorInput } from 'src/app/shared/validator-input';
 
@@ -10,7 +10,7 @@ import { ValidatorInput } from 'src/app/shared/validator-input';
 })
 export class AlterarTarefaModalComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<TarefaContainerComponent>,
+    public dialogRef: MatDialogRef<TarefasComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder
   ) {}

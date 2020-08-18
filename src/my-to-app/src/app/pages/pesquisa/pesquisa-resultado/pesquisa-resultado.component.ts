@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Tarefa } from 'src/app/pages/home/tarefa-container/tarefa.model';
+import { Tarefa } from 'src/app/pages/home/tarefas/tarefa.model';
 import { TarefaService } from '../../../shared/tarefa.service';
 import { PesquisaService } from '../pesquisa.service';
-import { Lista } from '../../home/tarefa-container/tarefa-lista.model';
+import { Lista } from '../../home/tarefas/tarefa-lista.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalConfirmComponent } from 'src/app/shared/modal-confirm/modal-confirm.component';
 import { ToastrService } from 'ngx-toastr';
-import { AlterarTarefaModalComponent } from '../../home/tarefa-container/alterar-tarefa-modal/alterar-tarefa-modal.component';
+import { AlterarTarefaModalComponent } from '../../home/tarefas/alterar-tarefa-modal/alterar-tarefa-modal.component';
 
 @Component({
   selector: 'app-pesquisa',
@@ -18,10 +18,15 @@ export class PesquisaResultadoComponent implements OnInit {
     listas: Lista[]
     pesquisa: string
 
-    constructor(private tarefaService: TarefaService, private servicoPesquisa: PesquisaService, public modal: MatDialog, private toastr: ToastrService) {}
+    constructor(
+        private tarefaService: TarefaService,
+        private servicoPesquisa: PesquisaService,
+        public modal: MatDialog,
+        private toastr: ToastrService
+        ) {}
 
     ngOnInit(): void {
-    this.tarefaService.getListas().subscribe(result => this.listas = result)
+        this.tarefaService.getListas().subscribe(result => this.listas = result)
         this.servicoPesquisa.novaPesquisa.subscribe(pesquisa => this.pesquisa = pesquisa)
     }
 
@@ -36,14 +41,14 @@ export class PesquisaResultadoComponent implements OnInit {
   }
 
 
-  removerTarefa(lista: Lista, tarefa: Tarefa) {
+  removerTarefaModal(lista: Lista, tarefa: Tarefa) {
     const dialogRef = this.modal.open(ModalConfirmComponent, {
       width: '400px',
     });
 
     dialogRef.componentInstance.configure('Deseja mesmo excluir a tarefa?')
     dialogRef.afterClosed().subscribe(() => {
-        this.removerTarefaId(lista, tarefa)
+        this.removerTarefaIndex(lista, tarefa)
 
         this.tarefaService.updateLista(lista).subscribe(() => {
             this.tarefaService.getListaId(lista.id).subscribe(res => lista = res)
@@ -52,7 +57,7 @@ export class PesquisaResultadoComponent implements OnInit {
     })
   }
 
-  removerTarefaId(lista: Lista, tarefa: Tarefa){
+  removerTarefaIndex(lista: Lista, tarefa: Tarefa){
     const index = lista.tarefas.findIndex(res => res.id == tarefa.id)
 
     if(index > -1){
@@ -61,14 +66,14 @@ export class PesquisaResultadoComponent implements OnInit {
   }
 
 
-  alterarTarefa(lista: Lista,tarefaSelect: Tarefa) {
+  alterarTarefaModal(lista: Lista,tarefaAlterada: Tarefa) {
     const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
       width: '400px',
-      data: { id: tarefaSelect.id, descricao: tarefaSelect.descricao, concluido: tarefaSelect.concluido },
+      data: { id: tarefaAlterada.id, descricao: tarefaAlterada.descricao, concluido: tarefaAlterada.concluido },
     });
 
     dialogRef.afterClosed().subscribe((tarefaAtual) => {
-        this.alterarTarefaId(lista, tarefaSelect, tarefaAtual)
+        this.alterarTarefaIndex(lista, tarefaAlterada, tarefaAtual)
 
         this.tarefaService.updateLista(lista).subscribe(() => {
             this.tarefaService.getListaId(lista.id).subscribe(res => lista = res)
@@ -77,11 +82,9 @@ export class PesquisaResultadoComponent implements OnInit {
     });
   }
 
-  alterarTarefaId(lista: Lista, tarefaSelect: Tarefa, tarefaAtual: Tarefa){
-    const index = lista.tarefas.findIndex(res => res.id == tarefaSelect.id)
+  alterarTarefaIndex(lista: Lista, tarefaAlterada: Tarefa, tarefaAtual: Tarefa){
+    const index = lista.tarefas.findIndex(res => res.id == tarefaAlterada.id)
     lista.tarefas[index].descricao = tarefaAtual.descricao
   }
-
-
 
 }

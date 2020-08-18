@@ -11,21 +11,22 @@
                     </button>
                 </div>
             </div>
-            <app-tarefa-container [lista]="item"></app-tarefa-container>
+            <app-tarefas [lista]="item"></app-tarefas>
         </mat-card>
-
-        <mat-card [formGroup]="form" class="ml3 novaLista mt4" (ngSubmit)="adiconarLista()">
-            <mat-form-field fxFill>
-                <mat-label>Nova lista</mat-label>
-                <input matInput type="text" formControlName="nome">
-                <mat-error *ngIf="form.get('nome').dirty">
-                    Insira pelo menos 3 caracteres
-                </mat-error>
-            </mat-form-field>
-            <button matSuffix mat-raised-button color="primary" [disabled]="!form.valid">
-                Adicionar
-            </button>
-        </mat-card>
-
+        
+        <form [formGroup]="form" (ngSubmit)="adiconarLista()">
+            <mat-card class="ml3 novaLista mt4">
+                <mat-form-field fxFill>
+                    <mat-label>Nova lista</mat-label>
+                    <input matInput type="text" formControlName="nome">
+                    <mat-error *ngIf="form.get('nome').dirty">
+                        Insira pelo menos 3 caracteres
+                    </mat-error>
+                </mat-form-field>
+                <button matSuffix mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+                    Adicionar
+                </button>
+            </mat-card>
+        </form>
     </div>
 </div>
