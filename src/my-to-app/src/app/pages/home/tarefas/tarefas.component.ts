@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { TarefaService } from '../../../shared/tarefa.service';
 import { Tarefa } from './tarefa.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -9,6 +9,7 @@ import { Lista } from './tarefa-lista.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ValidatorInput } from 'src/app/shared/validator-input';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tarefas',
@@ -16,11 +17,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./tarefas.component.css'],
 })
 
-export class TarefasComponent implements OnInit {
+export class TarefasComponent implements OnInit, OnDestroy {
   @Input() lista: Lista
   form: FormGroup;
   pesquisa: string;
   tarefasLista: Lista
+  sub: Subscription
 
   constructor(
       private tarefaService: TarefaService,
@@ -30,7 +32,7 @@ export class TarefasComponent implements OnInit {
       ) {}
 
   ngOnInit() {
-    this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+    this.sub = this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
 
     this.form = this.fb.group({
       nomeTarefa: this.fb.control('', ValidatorInput),
@@ -42,7 +44,7 @@ export class TarefasComponent implements OnInit {
     let tarefa = new Tarefa(this.form.get('nomeTarefa').value);
     this.lista.tarefas.push(tarefa)
 
-    this.tarefaService.updateLista(this.lista).subscribe(() => {
+    this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
         this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
         this.toastr.success('Tarefa Adicionada com sucesso')
     })
@@ -57,7 +59,7 @@ export class TarefasComponent implements OnInit {
     const index = this.lista.tarefas.findIndex(res => res.id === tarefa.id)
     this.lista.tarefas[index].concluido = tarefa.concluido
 
-    this.tarefaService.updateLista(this.lista).subscribe(() => {
+    this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
         this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
         this.toastr.success('Tarefa concluida com sucesso 👏')
     })
@@ -72,7 +74,7 @@ export class TarefasComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
         this.removerTarefaIndex(tarefa)
 
-        this.tarefaService.updateLista(this.lista).subscribe(() => {
+        this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
             this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
             this.toastr.success('Tarefa removida com sucesso')
         })
@@ -96,7 +98,7 @@ export class TarefasComponent implements OnInit {
     dialogRef.afterClosed().subscribe((tarefaAtual) => {
         this.alterarTarefaIndex(tarefaAlterada, tarefaAtual)
 
-        this.tarefaService.updateLista(this.lista).subscribe(() => {
+        this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
             this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
             this.toastr.success('Tarefa atualizada com sucesso 👏')
         })
@@ -108,4 +110,7 @@ export class TarefasComponent implements OnInit {
     this.lista.tarefas[index].descricao = tarefaAtual.descricao
   }
 
+   ngOnDestroy(): void {
+       this.sub.unsubscribe()
+    }
 }

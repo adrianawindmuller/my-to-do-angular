@@ -4,11 +4,6 @@
       "nome": "compras da semana",
       "tarefas": [
         {
-          "descricao": "Comprar frutas",
-          "concluido": false,
-          "id": "5uvr5otmw3w"
-        },
-        {
           "descricao": "pagar as contas",
           "concluido": false,
           "id": "peoxg1hf16"
@@ -41,7 +36,7 @@
       "nome": "final de semana",
       "tarefas": [
         {
-          "descricao": "ir no shopping",
+          "descricao": "pizza",
           "concluido": false,
           "id": "nudi0qtu3p"
         }

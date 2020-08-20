@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Tarefa } from 'src/app/pages/home/tarefas/tarefa.model';
 import { TarefaService } from '../../../shared/tarefa.service';
 import { PesquisaService } from '../pesquisa.service';
@@ -14,10 +14,10 @@ import { AlterarTarefaModalComponent } from '../../home/tarefas/alterar-tarefa-m
   templateUrl: './pesquisa-resultado.component.html',
   styleUrls: ['pesquisa-resultado.component.css']
 })
-export class PesquisaResultadoComponent implements OnInit {
+export class PesquisaResultadoComponent implements OnInit, OnDestroy {
     listas: Lista[]
     pesquisa: string
-
+    sub: Subscription
     constructor(
         private tarefaService: TarefaService,
         private servicoPesquisa: PesquisaService,
@@ -26,15 +26,15 @@ export class PesquisaResultadoComponent implements OnInit {
         ) {}
 
     ngOnInit(): void {
-        this.tarefaService.getListas().subscribe(result => this.listas = result)
-        this.servicoPesquisa.resultadoPesquisa$.subscribe( res => this.pesquisa = res)
+        this.sub = this.tarefaService.getListas().subscribe(result => this.listas = result)
+        this.sub = this.servicoPesquisa.resultadoPesquisa$.subscribe( res => this.pesquisa = res)
     }
 
     concluirTarefa(lista: Lista, tarefa: Tarefa) {
     const index = lista.tarefas.findIndex(res => res.id === tarefa.id)
     lista.tarefas[index].concluido = tarefa.concluido
 
-    this.tarefaService.updateLista(lista).subscribe(() => {
+    this.sub = this.tarefaService.updateLista(lista).subscribe(() => {
         this.tarefaService.getListaId(lista.id).subscribe(res => lista = res)
         this.toastr.success('Tarefa concluida com sucesso 👏')
     })
@@ -50,7 +50,7 @@ export class PesquisaResultadoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
         this.removerTarefaIndex(lista, tarefa)
 
-        this.tarefaService.updateLista(lista).subscribe(() => {
+        this.sub = this.tarefaService.updateLista(lista).subscribe(() => {
             this.tarefaService.getListaId(lista.id).subscribe(res => lista = res)
             this.toastr.success('Tarefa removida com sucesso')
         })
@@ -75,7 +75,7 @@ export class PesquisaResultadoComponent implements OnInit {
     dialogRef.afterClosed().subscribe((tarefaAtual) => {
         this.alterarTarefaIndex(lista, tarefaAlterada, tarefaAtual)
 
-        this.tarefaService.updateLista(lista).subscribe(() => {
+        this.sub = this.tarefaService.updateLista(lista).subscribe(() => {
             this.tarefaService.getListaId(lista.id).subscribe(res => lista = res)
             this.toastr.success('Tarefa atualizada com sucesso 👏')
         })
@@ -87,4 +87,7 @@ export class PesquisaResultadoComponent implements OnInit {
     lista.tarefas[index].descricao = tarefaAtual.descricao
   }
 
+  ngOnDestroy(): void {
+       this.sub.unsubscribe()
+    }
 }

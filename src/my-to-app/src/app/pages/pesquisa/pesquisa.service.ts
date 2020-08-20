@@ -8,8 +8,7 @@ import { Lista } from '../home/tarefas/tarefa-lista.model'
 export class PesquisaService {
 
     private pesquisaTarefa = new Subject<string>()
-    resultadoPesquisa$ = this.pesquisaTarefa.asObservable()
-
+    resultadoPesquisa$ = this.pesquisaTarefa.asObservable() 
 
     novapesquisa(pesquisa: string){
         this.pesquisaTarefa.next(pesquisa)
@@ -18,6 +17,4 @@ export class PesquisaService {
     limparPesquisa(pesquisa: string){
         this.pesquisaTarefa.next(pesquisa = '')
     }
-
-
 }
