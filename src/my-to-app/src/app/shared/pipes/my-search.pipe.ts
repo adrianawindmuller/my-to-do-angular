@@ -5,12 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
   pure: false,
 })
 export class MySearchPipe implements PipeTransform {
-  transform(items: any[], filter: Object): any {
-    if (!items || !filter) {
-      return items;
-    }
-    // filter items array, items which match and return true will be
-    // kept, false will be filtered out
-    return items.filter(item => item.descricao.indexOf(filter) !== -1);
+  transform(items: any[], filter: string): any {
+    filter = filter ? filter.toLocaleLowerCase() : null
+
+    return filter ? items.filter(item => item.descricao.toLocaleLowerCase().indexOf(filter) !== -1) : items
   }
 }

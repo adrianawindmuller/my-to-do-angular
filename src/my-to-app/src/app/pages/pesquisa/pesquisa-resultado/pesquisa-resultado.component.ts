@@ -27,7 +27,7 @@ export class PesquisaResultadoComponent implements OnInit {
 
     ngOnInit(): void {
         this.tarefaService.getListas().subscribe(result => this.listas = result)
-        this.servicoPesquisa.novaPesquisa.subscribe(pesquisa => this.pesquisa = pesquisa)
+        this.servicoPesquisa.resultadoPesquisa$.subscribe( res => this.pesquisa = res)
     }
 
     concluirTarefa(lista: Lista, tarefa: Tarefa) {

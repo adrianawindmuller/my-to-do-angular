@@ -33,27 +33,17 @@
           "descricao": "fazer reunião 1",
           "concluido": false,
           "id": "tz6ezhzh50j"
-        },
-        {
-          "descricao": "ir em aniversário",
-          "concluido": false,
-          "id": "gd0eayjrgkf"
         }
       ],
       "id": 2
     },
     {
-      "nome": "Final de semana",
+      "nome": "final de semana",
       "tarefas": [
         {
-          "descricao": "Ir no shopping",
+          "descricao": "ir no shopping",
           "concluido": false,
-          "id": "na7ju739pbc"
-        },
-        {
-          "descricao": "Visitar familia",
-          "concluido": false,
-          "id": "8q92ql8yc6b"
+          "id": "nudi0qtu3p"
         }
       ],
       "id": 3
