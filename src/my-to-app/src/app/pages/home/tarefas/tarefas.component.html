@@ -12,8 +12,7 @@
     </mat-form-field>
 </form>
 
-<mat-list *ngIf="tarefasLista, let tarefas" cdkDropList (cdkDropListDropped)="arrastarSoltarTarefa($event)"
-    [cdkDropListData]="tarefas">
+<mat-list *ngIf="tarefasLista, let tarefas" cdkDropList (cdkDropListDropped)="arrastarSoltarTarefa($event)">
     <mat-list-item *ngFor="let item of tarefas.tarefas" cdkDrag [class.mat-card-concluida]="item.concluido"
         fxLayout="column">
         <div fxFlex="70" fxLayoutAlign="start center">

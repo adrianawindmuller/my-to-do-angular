@@ -51,9 +51,13 @@ export class TarefasComponent implements OnInit, OnDestroy {
     this.form.get('nomeTarefa').reset();
   }
 
-  arrastarSoltarTarefa(evento: CdkDragDrop<any>) {
-    moveItemInArray(evento.container.data, evento.previousIndex, evento.currentIndex);
-  }
+  arrastarSoltarTarefa(evento: CdkDragDrop<Lista[]>) {
+    moveItemInArray(this.lista.tarefas, evento.previousIndex, evento.currentIndex);
+
+    this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
+        this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+  })
+}
 
   concluirTarefa(tarefa: Tarefa) {
     const index = this.lista.tarefas.findIndex(res => res.id === tarefa.id)
@@ -71,13 +75,15 @@ export class TarefasComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.componentInstance.configure('Deseja mesmo excluir a tarefa?')
-    dialogRef.afterClosed().subscribe(() => {
-        this.removerTarefaIndex(tarefa)
+    dialogRef.afterClosed().subscribe((excluir) => {
+        if(excluir){
+            this.removerTarefaIndex(tarefa)
 
-        this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
-            this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
-            this.toastr.success('Tarefa removida com sucesso')
-        })
+            this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
+                this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+                this.toastr.success('Tarefa removida com sucesso')
+            })
+        }
     })
   }
 
