@@ -11,15 +11,33 @@
 - [Material Design](https://material.angular.io/)
 - [Json Server](https://github.com/typicode/json-server)
 
-### *O resultado foi esse:*
-![My to-do](/src/my-to-app/src/assets/home.png)
-
 ## 📌 **Funcionalidade:**
+- Criar, excluir Lista;
 - Criar, alterar e excluir tarefa (CRUD);
 - Concluir tarefa;
 - Pesquisar tarefa;
-- Filtrar por todas, concluidas e não concluidas;
 - Responsivo.
+
+
+### *O resultado foi esse:*
+**Login:**
+![login](/src/my-to-app/src/assets/login.png)
+
+**Home:**
+![home](/src/my-to-app/src/assets/home.png)
+
+**Editar Tarefa:**
+![editar](/src/my-to-app/src/assets/editar-tarefa.png)
+
+**Remover Tarefa:**
+![remover](/src/my-to-app/src/assets/deletar-tarefa.png)
+
+**Pesquisar Tarefa:**
+![pesquisar](/src/my-to-app/src/assets/pesquisar-tarefa.png)
+
+
+
+
 
 
 

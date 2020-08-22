@@ -1,7 +1,7 @@
 <form [formGroup]="form" novalidate>
   <div mat-dialog-content fxLayout="row">
     <mat-form-field fxFlex>
-      <mat-label>Insira uma Tarefa</mat-label>
+      <mat-label>Editar tarefa</mat-label>
       <input matInput [(ngModel)]="data.descricao" formControlName="nomeTarefa">
       <mat-error *ngIf="form.get('nomeTarefa').errors?.required">
         Insira pelo menos 3 caracteres
