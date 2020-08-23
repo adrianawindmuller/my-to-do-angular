@@ -25,25 +25,20 @@
       "nome": "Trabalho",
       "tarefas": [
         {
-          "descricao": "Revisar Tarefas",
-          "concluido": true,
-          "id": "j91cslpcvy"
+          "descricao": "reunião 2",
+          "concluido": false,
+          "id": "18ln1er8pyd"
         }
       ],
       "id": 4
     },
     {
-      "nome": "Final de Semana",
+      "nome": "Final de semana",
       "tarefas": [
         {
-          "descricao": "comprar roupas",
+          "descricao": "Comprar roupas",
           "concluido": false,
-          "id": "vn691mf965"
-        },
-        {
-          "descricao": "ir no mercado",
-          "concluido": true,
-          "id": "ifaefm54bh"
+          "id": "osqhvbscyq"
         }
       ],
       "id": 5

@@ -1,7 +1,10 @@
 <div class="body pb3">
-    <div fxLayout="row wrap" fxLayoutAlign="start start">
+    <div fxLayout="row wrap" fxLayout.xs="column"
+     fxLayoutAlign="start start" fxLayoutAlign.xs="center center"
+     fxLayoutAlign.sm="center start" fxLayoutAlign.md="center start" >
 
-        <mat-card *ngFor="let item of listas" class="scrollbar ml3 container mt4" id="style-1">
+        <mat-card *ngFor="let item of listas" class="scrollbar ml3 container mt4"
+        [ngClass.xs]="{ 'ml3': false, 'mt4': false, 'mt3': true, 'scrollbar': false, 'scrollbar-mobile': true}" id="style-1">
             <div fxLayout="row">
                 <span class="aling-center" fxFlex="50" fxLayoutAlign="start center">
                     {{item.nome}} </span>
@@ -15,7 +18,7 @@
         </mat-card>
 
         <form [formGroup]="form" (ngSubmit)="adiconarLista()">
-            <mat-card class="ml3 novaLista mt4">
+            <mat-card class="ml3 novaLista mt4" [ngClass.xs]="{ 'ml3': false,'mt4': false, 'mt3': true}">
                 <mat-form-field fxFill>
                     <mat-label>Nova lista</mat-label>
                     <input matInput type="text" formControlName="nome">

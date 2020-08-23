@@ -1,6 +1,6 @@
 .body {
     width: 100%;
-    max-height: 680px;
+    max-height: auto;
     min-height: 530px;
     background: rgb(133, 168, 255);
     background: linear-gradient(
@@ -12,6 +12,11 @@
 
 .scrollbar {
     height: 400px;
+    overflow: auto;
+}
+
+.scrollbar-mobile {
+    height: auto;
     overflow: auto;
 }
 
@@ -37,6 +42,7 @@
     max-height: 800px;
     min-height: 100px;
 }
+
 
 .novaLista {
     width: 300px;

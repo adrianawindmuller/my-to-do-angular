@@ -1,22 +1,21 @@
 <mat-toolbar fxLayout="row" fxLayoutAlign="start center">
-    <mat-toolbar-row fxFlex>
-        <mat-icon color="primary">done</mat-icon>
+    <mat-toolbar-row fxFlex class="mobile-row">
+        <mat-icon color="primary" [routerLink]="['/home']">done</mat-icon>
         <a [routerLink]="['/home']">
-            <h1 class="mat-headline">My To-do</h1>
+            <h1 class="mat-headline" [ngClass.xs]="{ 'ml3': false}">My To-do</h1>
         </a>
     </mat-toolbar-row>
-    <mat-toolbar-row fxFlex="60" fxLayoutAlign="center center" *ngIf="pesquisa">
-        <app-pesquisa-input fxFlex="50" (keyup)="routearParaPesquisa()"></app-pesquisa-input>
+    <mat-toolbar-row fxFlex="60" fxLayoutAlign="center center" *ngIf="pesquisa" fxHide.xs="true">
+        <app-pesquisa-input fxFlex="50" fxFlex.xs="100" (keyup)="routearParaPesquisa()"></app-pesquisa-input>
         <br>
     </mat-toolbar-row>
 
     <mat-toolbar-row fxFlex fxLayoutAlign="end center">
-        <button mat-icon-button type="button" (click)="togglePesquisa()">
-            <mat-icon>search</mat-icon>
-        </button>
-        <nav class="pr2">
-            <button mat-button color="primary" routerLink="/sobre"><strong> Sobre</strong></button>
-        </nav>
+        <div class="pr2">
+            <button mat-icon-button type="button" (click)="togglePesquisa()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
         <button mat-fab [matMenuTriggerFor]="menu" class="avatar">
         </button>
         <mat-menu #menu="matMenu">
@@ -25,3 +24,6 @@
         </mat-menu>
     </mat-toolbar-row>
 </mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="pesquisa" fxShow.xs="true" class="pesquisa-mobile">
+        <app-pesquisa-input fxFlex="90" class="py2" (keyup)="routearParaPesquisa()"></app-pesquisa-input>
+    </div>

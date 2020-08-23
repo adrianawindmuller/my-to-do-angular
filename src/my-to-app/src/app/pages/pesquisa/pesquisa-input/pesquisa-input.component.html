@@ -2,7 +2,7 @@
     <div fxFlex="100" fxLayoutAlign="start center">
         <mat-icon>search</mat-icon>
         <input placeholder="Pesquisar" #filter [(ngModel)]="pesquisa" [value]="pesquisa"
-            (input)="inserirPesquisa(pesquisa)" fxFlex="90" />
+            (input)="inserirPesquisa(pesquisa)" fxFlex="90"  />
         <button mat-button *ngIf="pesquisa" matSuffix mat-icon-button (click)="limparPesquisa(pesquisa)">
             <mat-icon>close</mat-icon>
         </button>

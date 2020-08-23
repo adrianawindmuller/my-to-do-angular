@@ -1,8 +1,8 @@
 <div fxLayout="row" fxLayoutAlign="center start" class="body">
-    <mat-card fxFlex="70" class="my3">
+    <mat-card fxFlex="70" fxFlex.xs="90%" class="my3">
         <p class="p3 h3"> Pesquisando: {{pesquisa}} </p>
         <div *ngIf="pesquisa">
-            <mat-card *ngFor="let lista of listas" class="m3">
+            <mat-card *ngFor="let lista of listas" class="m3" [ngClass.xs]="{ 'm3': false, 'mb2': true}">
                 <mat-card-subtitle>
                     {{lista.nome}}
                 </mat-card-subtitle>
