@@ -24,46 +24,36 @@
 ### `Desktop:`
 
 **Login**
-
 ![login](/src/my-to-app/src/assets/login.png)
 
 **Home**
-
 ![home](/src/my-to-app/src/assets/home.png)
 
 **Editar Tarefa**
-
 ![editar](/src/my-to-app/src/assets/editar-tarefa.png)
 
 **Remover Tarefa**
-
 ![remover](/src/my-to-app/src/assets/deletar-tarefa.png)
 
 **Pesquisar Tarefa**
-
 ![pesquisar](/src/my-to-app/src/assets/pesquisar-tarefa.png)
 
 
 ### `Mobile:`
 
 **Login**
-
 ![login](/src/my-to-app/src/assets/mobile-login.png)
 
 **Home**
-
 ![home](/src/my-to-app/src/assets/mobile-home.png)
 
 **Editar Tarefa**
-
 ![editar](/src/my-to-app/src/assets/mobile-editar.png)
 
 **Remover Tarefa**
-
 ![remover](/src/my-to-app/src/assets/mobile-remover.png)
 
 **Pesquisar Tarefa**
-
 ![pesquisar](/src/my-to-app/src/assets/mobile-pesquisa.png)
 
 
