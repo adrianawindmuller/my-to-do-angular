@@ -21,7 +21,7 @@
 
 ### *O resultado foi esse:*
 
-### `**Desktop:**`
+### `Desktop:`
 
 **Login**
 ![login](/src/my-to-app/src/assets/login.png)
@@ -39,7 +39,7 @@
 ![pesquisar](/src/my-to-app/src/assets/pesquisar-tarefa.png)
 
 
-###`**Mobile:**`
+### `Mobile:`
 
 **Login**
 ![login](/src/my-to-app/src/assets/mobile-login.png)
