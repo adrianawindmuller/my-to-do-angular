@@ -55,6 +55,7 @@
 ![remover](/src/my-to-app/src/assets/mobile-remover.png)
 
 **Pesquisar Tarefa**
+
 ![pesquisar](/src/my-to-app/src/assets/mobile-pesquisa.png)
 
 
