@@ -55,12 +55,15 @@
 ![login](/src/my-to-app/src/assets/mobile-login.png)
 
 **Home**
+
 ![home](/src/my-to-app/src/assets/mobile-home.png)
 
 **Editar Tarefa**
+
 ![editar](/src/my-to-app/src/assets/mobile-editar.png)
 
 **Remover Tarefa**
+
 ![remover](/src/my-to-app/src/assets/mobile-remover.png)
 
 **Pesquisar Tarefa**
