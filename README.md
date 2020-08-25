@@ -13,7 +13,7 @@
 
 ## 📌 **Funcionalidade:**
 - Criar, alterar e excluir tarefa (CRUD);
-- Criar, excluir lista de tarefa;
+- Criar, alterar e excluir lista de tarefa (CRUD);
 - Concluir tarefa;
 - Pesquisar tarefa;
 - 100% Responsivo.
@@ -37,6 +37,15 @@
 
 **Pesquisar Tarefa**
 ![pesquisar](/src/my-to-app/src/assets/pesquisar-tarefa.png)
+
+**Menu Lista**
+![Menu Lista](/src/my-to-app/src/assets/menu-alterar-remover-lista.png)
+
+**Editar Lista**
+![Editar Lista](/src/my-to-app/src/assets/editar-lista.png)
+
+**Remover Lista**
+![Editar Lista](/src/my-to-app/src/assets/remover-lista.png)
 
 
 ### `Mobile:`

@@ -24,6 +24,6 @@
         </mat-menu>
     </mat-toolbar-row>
 </mat-toolbar>
-    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="pesquisa" fxShow.xs="true" class="pesquisa-mobile">
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="pesquisa" fxShow.xs="true" fxHide class="pesquisa-mobile">
         <app-pesquisa-input fxFlex="90" class="py2" (keyup)="routearParaPesquisa()"></app-pesquisa-input>
     </div>
