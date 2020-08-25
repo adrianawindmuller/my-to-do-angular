@@ -3,18 +3,26 @@
      fxLayoutAlign="start start" fxLayoutAlign.xs="center center"
      fxLayoutAlign.sm="center start" fxLayoutAlign.md="center start" >
 
-        <mat-card *ngFor="let item of listas" class="scrollbar ml3 container mt4"
+        <mat-card *ngFor="let lista of listas" class="scrollbar ml3 container mt4"
         [ngClass.xs]="{ 'ml3': false, 'mt4': false, 'mt3': true, 'scrollbar': false, 'scrollbar-mobile': true}" id="style-1">
             <div fxLayout="row">
-                <span class="aling-center" fxFlex="50" fxLayoutAlign="start center">
-                    {{item.nome}} </span>
-                <div fxFlex="50" fxLayoutAlign="end center">
-                    <button matSuffix mat-icon-button color="primary" type="button" (click)="removerLista(item)">
-                        <mat-icon matSuffix>delete_outline</mat-icon>
+                <span class="aling-center" fxFlex="80" fxLayoutAlign="start center">
+                    {{lista.nome}} </span>
+                <div fxFlex="20" fxLayoutAlign="end center">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
                     </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item type="button" (click)="alterarLista(lista)">
+                            <mat-icon matSuffix>create</mat-icon>Editar
+                        </button>
+                        <button mat-menu-item type="button" (click)="removerLista(lista)">
+                            <mat-icon matSuffix>delete_outline</mat-icon>Deletar
+                        </button>
+                    </mat-menu>
                 </div>
             </div>
-            <app-tarefas [lista]="item"></app-tarefas>
+            <app-tarefas [lista]="lista"></app-tarefas>
         </mat-card>
 
         <form [formGroup]="form" (ngSubmit)="adiconarLista()">

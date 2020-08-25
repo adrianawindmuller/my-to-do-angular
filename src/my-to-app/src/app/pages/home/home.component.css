@@ -1,7 +1,7 @@
 .body {
     width: 100%;
     max-height: auto;
-    min-height: 530px;
+    min-height: 77vh;
     background: rgb(133, 168, 255);
     background: linear-gradient(
         163deg,

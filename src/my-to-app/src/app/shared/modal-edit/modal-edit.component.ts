@@ -1,21 +1,21 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TarefasComponent } from '../tarefas.component';
+import { TarefasComponent } from '../../pages/home/tarefas/tarefas.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ValidatorInput } from 'src/app/shared/validator-input';
 
 @Component({
-  selector: 'app-alterar-tarefa-modal',
-  templateUrl: './alterar-tarefa-modal.component.html',
+  selector: 'modal-edit',
+  templateUrl: './modal-edit.component.html',
 })
-export class AlterarTarefaModalComponent implements OnInit {
-  constructor(
+export class ModalEditComponent implements OnInit {
+    tituloLabel: string
+    form: FormGroup;
+
+    constructor(
     public dialogRef: MatDialogRef<TarefasComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder
   ) {}
-
-  form: FormGroup;
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -26,12 +26,9 @@ export class AlterarTarefaModalComponent implements OnInit {
     });
   }
 
-  atualizarTarefa() {
-    this.dialogRef.close(this.data);
+  configureTitle(title: string){
+    this.tituloLabel = title
   }
 
-  sair() {
-    this.dialogRef.close();
-  }
 
 }

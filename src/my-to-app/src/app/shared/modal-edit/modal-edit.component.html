@@ -1,0 +1,18 @@
+<form [formGroup]="form" novalidate>
+    <div mat-dialog-content fxLayout="row" >
+        <mat-form-field fxFlex>
+        <mat-label>{{tituloLabel}}</mat-label>
+        <input *ngIf="data.descricao" matInput [(ngModel)]="data.descricao" formControlName="nomeTarefa">
+        <input *ngIf="data.nome" matInput [(ngModel)]="data.nome" formControlName="nomeTarefa">
+        <mat-error *ngIf="form.get('nomeTarefa').errors?.required">
+            Insira pelo menos 3 caracteres
+        </mat-error>
+        </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button type="button" mat-raised-button (click)="dialogRef.close()">Sair</button>
+        <button type="button" mat-raised-button color="primary" style="color: white" (click)="dialogRef.close(data)"
+        [disabled]="!form.valid && !form.pristine">Salvar</button>
+    </div>
+</form>

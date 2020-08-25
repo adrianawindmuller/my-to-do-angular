@@ -7,7 +7,7 @@ import { Lista } from '../../home/tarefas/tarefa-lista.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalConfirmComponent } from 'src/app/shared/modal-confirm/modal-confirm.component';
 import { ToastrService } from 'ngx-toastr';
-import { AlterarTarefaModalComponent } from '../../home/tarefas/alterar-tarefa-modal/alterar-tarefa-modal.component';
+import { ModalEditComponent } from '../../../shared/modal-edit/modal-edit.component';
 
 @Component({
   selector: 'app-pesquisa',
@@ -67,11 +67,12 @@ export class PesquisaResultadoComponent implements OnInit, OnDestroy {
 
 
   alterarTarefaModal(lista: Lista,tarefaAlterada: Tarefa) {
-    const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
+    const dialogRef = this.modal.open(ModalEditComponent, {
       width: '400px',
       data: { id: tarefaAlterada.id, descricao: tarefaAlterada.descricao, concluido: tarefaAlterada.concluido },
     });
 
+    dialogRef.componentInstance.configureTitle('Editar Tarefa')
     dialogRef.afterClosed().subscribe((tarefaAtual) => {
         this.alterarTarefaIndex(lista, tarefaAlterada, tarefaAtual)
 

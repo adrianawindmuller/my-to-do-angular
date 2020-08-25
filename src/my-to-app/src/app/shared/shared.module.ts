@@ -28,12 +28,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
 import {DragDropModule} from '@angular/cdk/drag-drop'
 import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
+import {ModalEditComponent} from './modal-edit/modal-edit.component'
 
 @NgModule({
-  declarations: [MySearchPipe, ModalConfirmComponent],
+  declarations: [MySearchPipe, ModalConfirmComponent,ModalEditComponent],
   imports: [
       CommonModule, BrowserModule, BrowserAnimationsModule,
       HttpClientModule, MatButtonModule, MatDialogModule, FlexLayoutModule,
+      ReactiveFormsModule,MatInputModule,
     ],
   exports: [
     BrowserAnimationsModule,
@@ -53,12 +55,14 @@ import { ModalConfirmComponent } from './modal-confirm/modal-confirm.component';
     MatCheckboxModule,
     MatToolbarModule,
     MatDialogModule,
-    MySearchPipe,
     ScrollingModule,
     MatMenuModule,
     AppRoutingModule,
     DragDropModule,
-    ModalConfirmComponent
+
+    MySearchPipe,
+    ModalConfirmComponent,
+    ModalEditComponent
   ],
 
 })

@@ -4,7 +4,7 @@ import { Tarefa } from './tarefa.model';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalConfirmComponent } from '../../../shared/modal-confirm/modal-confirm.component';
-import { AlterarTarefaModalComponent } from './alterar-tarefa-modal/alterar-tarefa-modal.component';
+import { ModalEditComponent } from '../../../shared/modal-edit/modal-edit.component';
 import { Lista } from './tarefa-lista.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ValidatorInput } from 'src/app/shared/validator-input';
@@ -96,18 +96,22 @@ export class TarefasComponent implements OnInit, OnDestroy {
   }
 
   alterarTarefaModal(tarefaAlterada: Tarefa) {
-    const dialogRef = this.modal.open(AlterarTarefaModalComponent, {
+    const dialogRef = this.modal.open(ModalEditComponent, {
       width: '400px',
       data: { id: tarefaAlterada.id, descricao: tarefaAlterada.descricao, concluido: tarefaAlterada.concluido },
     });
 
+    dialogRef.componentInstance.configureTitle('Editar Tarefa')
     dialogRef.afterClosed().subscribe((tarefaAtual) => {
-        this.alterarTarefaIndex(tarefaAlterada, tarefaAtual)
-
-        this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
-            this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
-            this.toastr.success('Tarefa atualizada com sucesso 👏')
-        })
+        if(tarefaAtual){
+            this.alterarTarefaIndex(tarefaAlterada, tarefaAtual)
+            console.log(tarefaAtual)
+            console.log(tarefaAlterada)
+            this.sub = this.tarefaService.updateLista(this.lista).subscribe(() => {
+                this.tarefaService.getListaId(this.lista.id).subscribe(res => this.tarefasLista = res)
+                this.toastr.success('Tarefa atualizada com sucesso 👏')
+            })
+        }
     });
   }
 
