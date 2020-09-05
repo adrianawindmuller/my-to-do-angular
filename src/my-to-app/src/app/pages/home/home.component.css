@@ -1,7 +1,7 @@
 .body {
     width: 100%;
-    max-height: auto;
-    min-height: 77vh;
+    min-height: 80vh;
+    max-height: 100%;
     background: rgb(133, 168, 255);
     background: linear-gradient(
         163deg,
@@ -19,6 +19,7 @@
     height: auto;
     overflow: auto;
 }
+
 
 #style-1::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -53,3 +54,4 @@
 .mat-raised-button.mat-primary {
     color: white;
 }
+

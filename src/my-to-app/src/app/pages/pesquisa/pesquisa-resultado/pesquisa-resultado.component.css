@@ -1,6 +1,7 @@
 .body {
     width: 100%;
-    min-height: 680px;
+    min-height: 80vh;
+    max-height: 100%;
     background: rgb(133, 168, 255);
     background: linear-gradient(
         163deg,
@@ -13,3 +14,4 @@
     font-style: italic;
     text-decoration: line-through;
 }
+

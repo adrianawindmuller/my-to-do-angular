@@ -7,15 +7,6 @@
 .mat-card {
     background-color: #f9f9f9;
 }
-/*
-::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
-    background-color: white;
-    border-radius: 5px;
-}
-
-.text-login {
-    color: white;
-} */
 
 .mat-raised-button.mat-primary {
     color: white;
