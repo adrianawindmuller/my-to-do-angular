@@ -2,53 +2,32 @@
   "lista": [
     {
       "id": 3,
-      "nome": "compras da semana",
+      "nome": "compras mês",
       "tarefas": [
         {
           "descricao": "comprar frutas ",
-          "concluido": true,
+          "concluido": false,
           "id": "1grucligh9d"
         },
         {
-          "descricao": "pagar contas",
-          "concluido": true,
-          "id": "e1pqade9vx9"
-        },
-        {
           "descricao": "ir na farmácia",
-          "concluido": false,
-          "id": "aleovo07oht"
+          "concluido": true,
+          "id": "70wp4pm3cv3"
         }
       ]
-    },
-    {
-      "nome": "Final de semana",
-      "tarefas": [
-        {
-          "descricao": "almoco domingo",
-          "concluido": false,
-          "id": "k5zwg36n11s"
-        },
-        {
-          "descricao": "Ir no shopping",
-          "concluido": false,
-          "id": "sc9s4qjy3i9"
-        }
-      ],
-      "id": 4
     },
     {
       "nome": "Trabalho",
       "tarefas": [
         {
-          "descricao": "reunião 1",
+          "descricao": "reunião quinta",
           "concluido": false,
-          "id": "7bpnoac1133"
+          "id": "eya8z8vhvai"
         },
         {
-          "descricao": "revisar tarefas",
+          "descricao": "reunião quinta",
           "concluido": true,
-          "id": "ogl7b1m7km"
+          "id": "ui3cugs9siq"
         }
       ],
       "id": 5

@@ -1,6 +1,6 @@
 ![logo](/src/my-to-app/src/assets/logo-tipo.png)
 
-## `Criei este projeto para aplicar meus conhecimento obtidos na programação front-end.`
+## `Criei este pet project para aplicar o que venho estudando na programação front-end.`
 
 ### 💡 A idéia foi criar um to-do list simples em Angular, utilizando Material Design!😉
 
@@ -16,59 +16,17 @@
 - Criar, alterar e excluir lista de tarefa (CRUD);
 - Concluir tarefa;
 - Pesquisar tarefa;
+- Drag-and-drop tarefas;
 - 100% Responsivo.
 
 
 ### *O resultado foi esse:*
 
-### `Desktop:`
-
-**Login**
-![login](/src/my-to-app/src/assets/login.png)
+🎥 [Vídeo Youtube](https://www.youtube.com/watch?v=M7nVOmL3tUU&t=8s)
 
 **Home**
-![home](/src/my-to-app/src/assets/home.png)
+[![home](/src/my-to-app/src/assets/home.png)](https://www.youtube.com/watch?v=M7nVOmL3tUU&t=8s)
 
-**Editar Tarefa**
-![editar](/src/my-to-app/src/assets/editar-tarefa.png)
-
-**Remover Tarefa**
-![remover](/src/my-to-app/src/assets/deletar-tarefa.png)
-
-**Pesquisar Tarefa**
-![pesquisar](/src/my-to-app/src/assets/pesquisar-tarefa.png)
-
-**Menu Lista**
-![Menu Lista](/src/my-to-app/src/assets/menu-alterar-remover-lista.png)
-
-**Editar Lista**
-![Editar Lista](/src/my-to-app/src/assets/editar-lista.png)
-
-**Remover Lista**
-![Editar Lista](/src/my-to-app/src/assets/remover-lista.png)
-
-
-### `Mobile:`
-
-**Login**
-
-![login](/src/my-to-app/src/assets/mobile-login.png)
-
-**Home**
-
-![home](/src/my-to-app/src/assets/mobile-home.png)
-
-**Editar Tarefa**
-
-![editar](/src/my-to-app/src/assets/mobile-editar.png)
-
-**Remover Tarefa**
-
-![remover](/src/my-to-app/src/assets/mobile-remover.png)
-
-**Pesquisar Tarefa**
-
-![pesquisar](/src/my-to-app/src/assets/mobile-pesquisa.png)
 
 
 
